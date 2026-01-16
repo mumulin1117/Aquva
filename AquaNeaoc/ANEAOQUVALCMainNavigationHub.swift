@@ -17,10 +17,10 @@ class ANEAOQUVALCMainNavigationHub: UITabBarController {
 
     private func ANEAOQUVALCInitializeStageMatrix() {
         let ANEAOQUVALCHomeRoot = ANEAOQUVALCFestivalPortalController()
-        let ANEAOQUVALCVideoRoot = UIViewController() // Placeholder
-        let ANEAOQUVALCMusicRoot = UIViewController() // Placeholder
-        let ANEAOQUVALCChatRoot = UIViewController()  // Placeholder
-        let ANEAOQUVALCUserRoot = UIViewController()  // Placeholder
+        let ANEAOQUVALCVideoRoot = ANEAOQUVALCDiscoveryPortalController() // Placeholder
+        let ANEAOQUVALCMusicRoot = ANEAOQUVALCFeedsStreamController() // Placeholder
+        let ANEAOQUVALCChatRoot = ANEAOQUVALCMessageHubController()  // Placeholder
+        let ANEAOQUVALCUserRoot = ANEAOQUVALCProfileHubController()  // Placeholder
 
         viewControllers = [
             ANEAOQUVALCWrapInNav(ANEAOQUVALCHomeRoot, "ANEAOQUVALChome"),
@@ -43,5 +43,8 @@ class ANEAOQUVALCMainNavigationHub: UITabBarController {
         tabBar.unselectedItemTintColor = .systemGray
         tabBar.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         tabBar.isTranslucent = false
+        let apperr = UITabBarAppearance.init()
+        apperr.backgroundColor = .black
+        tabBar.standardAppearance  = apperr
     }
 }
