@@ -12,9 +12,34 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
     private let ANEAOQUVALCMainScrollPlane = UIScrollView()
     private let ANEAOQUVALCContentStack = UIStackView()
     
-    private var ANEAOQUVALCSonicInsightBuffer: [[String: String]] = []
-    private var ANEAOQUVALCVisualMotionBuffer: [[String: String]] = []
+    private var ANEAOQUVALCSonicInsightBuffer: [[String:Any]] = []
+    private var ANEAOQUVALCVisualMotionBuffer: [[String:Any]] = []
 
+    // MARK: - Data Synchronization
+    private func ANEAOQUVALCInitiateSonicFetch() {
+        // 用户推荐请求
+        ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/ugaburemkz/xixnfhnmkrydo", ANEAOQUVALCPayload: ["ANEAOQUVALCacousticVibe":"59350823"], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            self?.ANEAOQUVALCSonicInsightBuffer = result
+            DispatchQueue.main.async {
+               
+            }
+        }, ANEAOQUVALCOnFailure: nil)
+        
+        // video数据请求
+        ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/yqsrvbkcnz/pidfjq", ANEAOQUVALCPayload: ["ANEAOQUVALCbootleg":"59350823","ANEAOQUVALCcampground":20,"ANEAOQUVALCbroadcast":1], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            self?.ANEAOQUVALCVisualMotionBuffer = result.filter({ allmo in
+                allmo["ANEAOQUVALCdanceFloor"] as? String != nil
+            })
+            DispatchQueue.main.async {
+               
+            }
+        }, ANEAOQUVALCOnFailure: nil)
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.98, green: 0.97, blue: 0.95, alpha: 1.00)
@@ -127,8 +152,8 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
         ANEAOQUVALCItemTrack.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCInsightScroll.addSubview(ANEAOQUVALCItemTrack)
 
-        for ANEAOQUVALCData in ANEAOQUVALCSonicInsightBuffer {
-            ANEAOQUVALCItemTrack.addArrangedSubview(ANEAOQUVALCBuildInsightPill(ANEAOQUVALCData))
+        for (i,ANEAOQUVALCData) in (ANEAOQUVALCSonicInsightBuffer.enumerated()) {
+            ANEAOQUVALCItemTrack.addArrangedSubview(ANEAOQUVALCBuildInsightPill(ANEAOQUVALCData, tag: i))
         }
 
         ANEAOQUVALCSectionWrapper.addArrangedSubview(ANEAOQUVALCBuildLabelContainer(ANEAOQUVALCLabel))
@@ -148,30 +173,31 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
         ])
     }
 
-    private func ANEAOQUVALCBuildInsightPill(_ ANEAOQUVALCDict: [String: String]) -> UIView {
+    private func ANEAOQUVALCBuildInsightPill(_ ANEAOQUVALCDict: [String: Any],tag:Int) -> UIView {
         let ANEAOQUVALCPill = UIView()
         ANEAOQUVALCPill.backgroundColor = .black
         ANEAOQUVALCPill.layer.cornerRadius = 45
         ANEAOQUVALCPill.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        
+        ANEAOQUVALCPill.tag = tag
+        ANEAOQUVALCPill.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ANEAOQUVALCIUserEnter(taoerture:))))
         let ANEAOQUVALCIcon = UIImageView()
         ANEAOQUVALCIcon.layer.cornerRadius = 35
         ANEAOQUVALCIcon.clipsToBounds = true
         ANEAOQUVALCIcon.layer.borderWidth = 2
         ANEAOQUVALCIcon.layer.borderColor = UIColor(red: 0.82, green: 1.00, blue: 0.20, alpha: 1.00).cgColor
-//        ANEAOQUVALCIcon.image = MITTBuilsdArtisanWorkshop.MITTBuilsdFetchVibeGraphic(MITTBuilsdAssetAlias: "aneaoquvalc_insight_avatar")
+        ANEAOQUVALCIcon.ANEAOQUVALCSyncOrganicVibe(from: ANEAOQUVALCDict["ANEAOQUVALCafterParty"] as? String ?? "")
         ANEAOQUVALCIcon.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCPill.addSubview(ANEAOQUVALCIcon)
         
         let ANEAOQUVALCTag = UILabel()
-        ANEAOQUVALCTag.text = ANEAOQUVALCDict["tag"]
+        ANEAOQUVALCTag.text = ANEAOQUVALCDict["ANEAOQUVALCafterHours"] as? String
         ANEAOQUVALCTag.textColor = UIColor(red: 0.82, green: 1.00, blue: 0.20, alpha: 1.00)
         ANEAOQUVALCTag.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         ANEAOQUVALCTag.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCPill.addSubview(ANEAOQUVALCTag)
         
         let ANEAOQUVALCLikes = UILabel()
-        ANEAOQUVALCLikes.text = "★ \(ANEAOQUVALCDict["likes"] ?? "")"
+        ANEAOQUVALCLikes.text = "★ \(ANEAOQUVALCDict["ANEAOQUVALCbodySurfing"] as? Int ?? 0)"
         ANEAOQUVALCLikes.textColor = .white
         ANEAOQUVALCLikes.font = UIFont.systemFont(ofSize: 13)
         ANEAOQUVALCLikes.translatesAutoresizingMaskIntoConstraints = false
@@ -192,16 +218,17 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
 
 
 
-    private func ANEAOQUVALCBuildMotionCard(_ ANEAOQUVALCDict: [String: String]) -> UIView {
+    private func ANEAOQUVALCBuildMotionCard(_ ANEAOQUVALCDict: [String: Any],tag:Int) -> UIView {
         let ANEAOQUVALCCard = UIView()
         ANEAOQUVALCCard.widthAnchor.constraint(equalToConstant: 280).isActive = true
-        
+        ANEAOQUVALCCard.tag = tag
+        ANEAOQUVALCCard.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ANEAOQUVALCIactiveyEnter(taoerture:))))
         let ANEAOQUVALCImage = UIImageView()
         ANEAOQUVALCImage.contentMode = .scaleAspectFill
         ANEAOQUVALCImage.clipsToBounds = true
         ANEAOQUVALCImage.layer.cornerRadius = 35
         ANEAOQUVALCImage.backgroundColor = .blue
-//        ANEAOQUVALCImage.image = MITTBuilsdArtisanWorkshop.MITTBuilsdFetchVibeGraphic(MITTBuilsdAssetAlias: "aneaoquvalc_video_thumb")
+        ANEAOQUVALCImage.ANEAOQUVALCSyncOrganicVibe(from: ANEAOQUVALCDict["ANEAOQUVALCdanceFloor"] as? String ?? "")
         ANEAOQUVALCImage.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCCard.addSubview(ANEAOQUVALCImage)
         
@@ -213,7 +240,7 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
         userAvator.backgroundColor = .blue
         userAvator.layer.borderWidth = 1
         userAvator.layer.borderColor = UIColor(red: 0.86, green: 1, blue: 0, alpha: 1).cgColor
-//        userAvator.image = MITTBuilsdArtisanWorkshop.MITTBuilsdFetchVibeGraphic(MITTBuilsdAssetAlias: "aneaoquvalc_video_thumb")
+        userAvator.ANEAOQUVALCSyncOrganicVibe(from: ANEAOQUVALCDict["ANEAOQUVALCcityFestival"] as? String ?? "")
         userAvator.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCCard.addSubview(userAvator)
         
@@ -224,7 +251,7 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
         ANEAOQUVALCCard.addSubview(ANEAOQUVALCPlayBtn)
         
         let ANEAOQUVALCDesc = UILabel()
-        ANEAOQUVALCDesc.text = ANEAOQUVALCDict["prompt"]
+        ANEAOQUVALCDesc.text = ANEAOQUVALCDict["ANEAOQUVALCchillWave"] as? String ?? ""
         ANEAOQUVALCDesc.textColor = .white
         ANEAOQUVALCDesc.font = UIFont.systemFont(ofSize: 22, weight: .black)
         ANEAOQUVALCDesc.translatesAutoresizingMaskIntoConstraints = false
@@ -328,8 +355,8 @@ extension ANEAOQUVALCDiscoveryPortalController: UIScrollViewDelegate {
         ANEAOQUVALCCardTrack.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCHorizontalScroll.addSubview(ANEAOQUVALCCardTrack)
 
-        for ANEAOQUVALCData in ANEAOQUVALCVisualMotionBuffer {
-            let ANEAOQUVALCCard = ANEAOQUVALCBuildMotionCard(ANEAOQUVALCData)
+        for (i,ANEAOQUVALCData) in ANEAOQUVALCVisualMotionBuffer.enumerated() {
+            let ANEAOQUVALCCard = ANEAOQUVALCBuildMotionCard(ANEAOQUVALCData, tag: i)
             ANEAOQUVALCCardTrack.addArrangedSubview(ANEAOQUVALCCard)
         }
 
@@ -400,4 +427,34 @@ extension ANEAOQUVALCDiscoveryPortalController: UIScrollViewDelegate {
         
         targetContentOffset.pointee.x = ANEAOQUVALCIndex * ANEAOQUVALCItemWidth
     }
+    
+    
+//用户点击
+    @objc private func ANEAOQUVALCIUserEnter(taoerture:UITapGestureRecognizer) {
+    let fenderData = ANEAOQUVALCSonicInsightBuffer[ taoerture.view?.tag ?? 0]["ANEAOQUVALCactiveListener"]  as? Int ?? 0
+    
+    let pageContetnt = ANEAOQUVALCStagePortalBridge.init(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCAttendeeBackstage.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "\(fenderData)"))
+    pageContetnt.hidesBottomBarWhenPushed = true
+    self.navigationController?.pushViewController(pageContetnt, animated: true)
+}
+
+
+//video点击
+ @objc private func ANEAOQUVALCIactiveyEnter(taoerture:UITapGestureRecognizer) {
+     let fenderData = ANEAOQUVALCVisualMotionBuffer[ taoerture.view?.tag ?? 0][""]  as? Int ?? 0
+     
+     let pageContetnt = ANEAOQUVALCStagePortalBridge.init(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCMomentDeepDive.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "\(fenderData)&type=2"))
+     pageContetnt.hidesBottomBarWhenPushed = true
+     self.navigationController?.pushViewController(pageContetnt, animated: true)
+ }
+
+
+
+//add video
+@objc private func ANEAOQUVALCADDactiveyEnter(){
+     
+     let pageContetnt = ANEAOQUVALCStagePortalBridge.init(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCStudioUploader.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: ""))
+     pageContetnt.hidesBottomBarWhenPushed = true
+     self.navigationController?.pushViewController(pageContetnt, animated: true)
+ }
 }

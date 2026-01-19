@@ -62,11 +62,8 @@ class ANEAOQUVALCStagePortalBridge: UIViewController {
     }
     
     private func ANEAOQUVALCPrepareStageLayout() {
-        let ANEAOQUVALCBgImage = UIImageView(frame: UIScreen.main.bounds)
-        ANEAOQUVALCBgImage.contentMode = .scaleAspectFill
-        // 结合之前重写的解密类获取图片
-        ANEAOQUVALCBgImage.image = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "aneaoquvalc_loading_bg")
-        view.addSubview(ANEAOQUVALCBgImage)
+        view.backgroundColor = UIColor(red: 0.98, green: 0.96, blue: 0.94, alpha: 1)
+       
        
         view.addSubview(ANEAOQUVALCFestivalWebView)
         ANEAOQUVALCFestivalWebView.frame = view.bounds
