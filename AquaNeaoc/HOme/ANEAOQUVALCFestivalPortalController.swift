@@ -62,10 +62,11 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
 
     // MARK: - Data Synchronization
     private func ANEAOQUVALCInitiateSonicFetch() {
-        // 活动数据请求
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
         ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/lctgaxlgkxxpqz/uzzgksft", ANEAOQUVALCPayload: ["ANEAOQUVALCliveChat":"59350823"], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
             guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
             self?.ANEAOQUVALCEventStageData = result
+            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
             DispatchQueue.main.async { self?.ANEAOQUVALCRefreshEventInterface() }
         }, ANEAOQUVALCOnFailure: nil)
         
@@ -209,7 +210,7 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
             ANEAOQUVALCBox.spacing = 16
             ANEAOQUVALCBox.alignment = .center
             ANEAOQUVALCBox.tag = tag
-            ANEAOQUVALCBox.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ANEAOQUVALCIactiveyEnter(taoerture:) )))
+            ANEAOQUVALCBox.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ANEAOQUVALCIUserEnter(taoerture:) )))
             // 头像与状态圆点
             let ANEAOQUVALCAvatarFrame = UIView()
             ANEAOQUVALCAvatarFrame.translatesAutoresizingMaskIntoConstraints = false
@@ -360,11 +361,13 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
                 ANEAOQUVALCHostName.translatesAutoresizingMaskIntoConstraints = false
                 ANEAOQUVALCUnit.addSubview(ANEAOQUVALCHostName)
                 
-                let ANEAOQUVALCAlertIcon = UIImageView(image: UIImage(systemName: "exclamationmark.circle"))
-                ANEAOQUVALCAlertIcon.tintColor = .lightGray
-                ANEAOQUVALCAlertIcon.translatesAutoresizingMaskIntoConstraints = false
-                ANEAOQUVALCUnit.addSubview(ANEAOQUVALCAlertIcon)
-
+        let ANEAOQUVALCAlertIcon = UIButton.init()
+        ANEAOQUVALCAlertIcon.setImage(UIImage.init(named: "nokikonhreporet"), for: .normal)
+        ANEAOQUVALCAlertIcon.addTarget(self, action: #selector(ANEAOQUVALCExecuteContentAudit), for: .touchUpInside)
+              
+        ANEAOQUVALCAlertIcon.translatesAutoresizingMaskIntoConstraints = false
+        ANEAOQUVALCUnit.addSubview(ANEAOQUVALCAlertIcon)
+        
                 // MARK: - 约束布局 (严格对应 UI 设计图)
                 NSLayoutConstraint.activate([
                     ANEAOQUVALCPoster.topAnchor.constraint(equalTo: ANEAOQUVALCUnit.topAnchor, constant: 6),
@@ -404,7 +407,7 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
             }
         
     //用户点击
-    private func ANEAOQUVALCIUserEnter(taoerture:UITapGestureRecognizer) {
+    @objc private func ANEAOQUVALCIUserEnter(taoerture:UITapGestureRecognizer) {
         let fenderData = ANEAOQUVALCPotentialPeerData[ taoerture.view?.tag ?? 0]["ANEAOQUVALCactiveListener"]  as? Int ?? 0
         
         let pageContetnt = ANEAOQUVALCStagePortalBridge.init(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCAttendeeBackstage.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "\(fenderData)"))
@@ -430,7 +433,7 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
          let pageContetnt = ANEAOQUVALCStagePortalBridge.init(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCLaunchPad.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: ""))
          pageContetnt.hidesBottomBarWhenPushed = true
          self.navigationController?.pushViewController(pageContetnt, animated: true)
-     }
+    }
     
     //1v4
     @objc private func ANEAOQUVALCADMatchUserEnter(){

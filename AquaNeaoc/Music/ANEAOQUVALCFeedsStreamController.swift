@@ -2,7 +2,7 @@
 //  ANEAOQUVALCFeedsStreamController.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/16.
+//  Created by  on 2026/1/16.
 //
 import UIKit
 
@@ -14,28 +14,22 @@ class ANEAOQUVALCFeedsStreamController: UIViewController, UITableViewDelegate, U
     private var ANEAOQUVALCActiveCategory: Int = 0
 
     // MARK: - Data Synchronization
-    private func ANEAOQUVALCInitiateSonicFetch() {
-        // 用户推荐请求
-//        ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/ugaburemkz/xixnfhnmkrydo", ANEAOQUVALCPayload: ["ANEAOQUVALCacousticVibe":"59350823"], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
-//            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
-//            self?.ANEAOQUVALCPotentialPeerData = result
-//            DispatchQueue.main.async { self?.ANEAOQUVALCRefreshPeerInterface() }
-//        }, ANEAOQUVALCOnFailure: nil)
-//        
-//        // 活动数据请求
-//        ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/lctgaxlgkxxpqz/uzzgksft", ANEAOQUVALCPayload: ["ANEAOQUVALCliveChat":"59350823"], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
-//            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
-//            self?.ANEAOQUVALCEventStageData = result
-//            DispatchQueue.main.async { self?.ANEAOQUVALCRefreshEventInterface() }
-//        }, ANEAOQUVALCOnFailure: nil)
-//        
-        
+    private func ANEAOQUVALCInitiateSonicSync() {
+      
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
+        ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/yqsrvbkcnz/pidfjq", ANEAOQUVALCPayload: ["ANEAOQUVALCbootleg":"59350823","ANEAOQUVALCcampground":20,"ANEAOQUVALCbroadcast":1,"ANEAOQUVALCboomBox":ANEAOQUVALCActiveCategory], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
+            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            self?.ANEAOQUVALCCurrentVibeData = result.filter({ $0["ANEAOQUVALCdanceFloor"] as? String == nil })
+            self?.ANEAOQUVALCFeedsTable.reloadData()
+        }, ANEAOQUVALCOnFailure: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.98, green: 0.96, blue: 0.94, alpha: 1)
         ANEAOQUVALCSetupVisualStructure()
-        ANEAOQUVALCPerformRemoteSonicSync()
+        ANEAOQUVALCInitiateSonicSync()
     }
 
     private func ANEAOQUVALCSetupVisualStructure() {
@@ -53,6 +47,7 @@ class ANEAOQUVALCFeedsStreamController: UIViewController, UITableViewDelegate, U
         ANEAOQUVALCAddVibeBtn.layer.cornerRadius = 25
         ANEAOQUVALCAddVibeBtn.setImage(UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 22, weight: .bold)), for: .normal)
         ANEAOQUVALCAddVibeBtn.tintColor = .black
+        ANEAOQUVALCAddVibeBtn.addTarget(self, action: #selector(ANEAOQUVALCADDactiveyEnter), for: .touchUpInside)
         ANEAOQUVALCAddVibeBtn.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCHeaderBox.addSubview(ANEAOQUVALCAddVibeBtn)
 
@@ -111,11 +106,7 @@ class ANEAOQUVALCFeedsStreamController: UIViewController, UITableViewDelegate, U
         ])
     }
 
-//    private func ANEAOQUVALCUpdateFilterStyle(_ btn: UIButton, isActive: Bool) {
-//        btn.backgroundColor = isActive ? .black : .white
-//        btn.setTitleColor(isActive ? UIColor(red: 0.82, green: 1.00, blue: 0.20, alpha: 1.00) : .black, for: .normal)
-//        btn.layer.borderColor = UIColor.black.cgColor
-//    }
+
 
     @objc private func ANEAOQUVALCFilterTriggered(_ sender: UIButton) {
         ANEAOQUVALCActiveCategory = sender.tag
@@ -125,19 +116,10 @@ class ANEAOQUVALCFeedsStreamController: UIViewController, UITableViewDelegate, U
             }
         }
         sender.isSelected = true
-        ANEAOQUVALCPerformRemoteSonicSync()
+        ANEAOQUVALCInitiateSonicSync()
     }
 
-    private func ANEAOQUVALCPerformRemoteSonicSync() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let ANEAOQUVALCMockPayload: [[String: Any]] = [
-                ["user": "Stella", "time": "2min ago", "note": "From sunrise to bass drops, let's dance it out together!", "views": "2336"],
-                ["user": "Naomi", "time": "10min ago", "note": "Vibing with the festival energy ✨", "views": "1204"]
-            ]
-            self.ANEAOQUVALCCurrentVibeData = (self.ANEAOQUVALCActiveCategory == 2) ? [ANEAOQUVALCMockPayload[0]] : ANEAOQUVALCMockPayload
-            self.ANEAOQUVALCFeedsTable.reloadData()
-        }
-    }
+  
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ANEAOQUVALCCurrentVibeData.count
@@ -146,7 +128,33 @@ class ANEAOQUVALCFeedsStreamController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ANEAOQUVALCFeedVibeCell", for: indexPath) as! ANEAOQUVALCFeedVibeCell
         cell.ANEAOQUVALCConfigureCell(with: ANEAOQUVALCCurrentVibeData[indexPath.row])
+        cell.ANEAOQUVALCReportBackdrop.addTarget(self, action: #selector(ANEAOQUVALCExecuteContentAudit), for: .touchUpInside)
+        cell.ANEAOQUVALCChatActionBtn.tag = indexPath.row
+        cell.ANEAOQUVALCChatActionBtn.addTarget(self, action: #selector(ANEAOQUVALCExecuteTOCHATRudit(taoerture:)), for: .touchUpInside)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        let id = ANEAOQUVALCCurrentVibeData[indexPath.row]["ANEAOQUVALCcenterStage"] as? Int ?? 0
+        let vc = ANEAOQUVALCStagePortalBridge(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCMomentDeepDive.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "\(id)"))
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+  
+
+    @objc private func ANEAOQUVALCExecuteTOCHATRudit(taoerture:UIButton) {
+        let tag = taoerture.tag
+        let id = ANEAOQUVALCCurrentVibeData[tag]["ANEAOQUVALCchordProgression"] as? String ?? "0"
+        let vc = ANEAOQUVALCStagePortalBridge(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCArtistBioNews.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "\(id)"))
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+   
+    @objc private func ANEAOQUVALCADDactiveyEnter() {
+        let vc = ANEAOQUVALCStagePortalBridge(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCStudioUploader.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: ""))
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -165,7 +173,7 @@ class ANEAOQUVALCFeedVibeCell: UITableViewCell {
     private let ANEAOQUVALCViewCountLabel = UILabel()
     private let ANEAOQUVALCLikeTrigger = UIButton()
     private let ANEAOQUVALCCommentTrigger = UIButton()
-    private let ANEAOQUVALCChatActionBtn = UIButton()
+     let ANEAOQUVALCChatActionBtn = UIButton()
 
     
     let ANEAOQUVALCReportBackdrop = UIButton.init()
@@ -279,10 +287,10 @@ class ANEAOQUVALCFeedVibeCell: UITableViewCell {
         ANEAOQUVALCViewCountLabel.textColor = .systemGray3
         ANEAOQUVALCViewCountLabel.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCStatView.addSubview(ANEAOQUVALCViewCountLabel)
-
+        ANEAOQUVALCViewCountLabel.text = "\(Int.random(in: 20...55))"
         // 点赞按钮
         ANEAOQUVALCLikeTrigger.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        ANEAOQUVALCLikeTrigger.tintColor = UIColor(red: 1.00, green: 0.30, blue: 0.58, alpha: 1.00) // 粉色
+        ANEAOQUVALCLikeTrigger.tintColor = UIColor.lightGray // 粉色
         ANEAOQUVALCLikeTrigger.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCStatView.addSubview(ANEAOQUVALCLikeTrigger)
 
@@ -329,21 +337,36 @@ ANEAOQUVALCChatActionBtn.setBackgroundImage(UIImage.init(named: "ANEAOQUVALChich
     }
 
     func ANEAOQUVALCConfigureCell(with data: [String: Any]) {
-        ANEAOQUVALCNameLabel.text = data["user"] as? String
-        ANEAOQUVALCTimeLabel.text = data["time"] as? String
-        ANEAOQUVALCNoteLabel.text = "♪♪ \"\(data["note"] as? String ?? "")\""
-        
+        ANEAOQUVALCNameLabel.text = data["ANEAOQUVALCchorus"] as? String
+        ANEAOQUVALCTimeLabel.text = ANEAOQUVALCTransformTimestamp(unixTimestamp: ((data["ANEAOQUVALCconcertHall"] as? Int ?? 0)/1000))
+        ANEAOQUVALCNoteLabel.text = "♪♪ \"\(data["ANEAOQUVALCchillWave"] as? String ?? "")\""
+        ANEAOQUVALCCommentTrigger.setTitle("\((data["ANEAOQUVALCcloudRap"] as? Int ?? 0))", for: .normal)
         // 调用资源还原引擎
-//        ANEAOQUVALCAvatar.image = MITTBuilsdArtisanWorkshop.MITTBuilsdFetchVibeGraphic(MITTBuilsdAssetAlias: "aneaoquvalc_avatar_mock")
+        ANEAOQUVALCAvatar.ANEAOQUVALCSyncOrganicVibe(from: data["ANEAOQUVALCcityFestival"] as? String ?? "")
         
         ANEAOQUVALCImageStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        for _ in 0..<2 {
+        for i in 0..<2 {
             let img = UIImageView()
             img.contentMode = .scaleAspectFill
             img.clipsToBounds = true
             img.layer.cornerRadius = 20
-//            img.image = MITTBuilsdArtisanWorkshop.MITTBuilsdFetchVibeGraphic(MITTBuilsdAssetAlias: "aneaoquvalc_feed_img")
+            img.ANEAOQUVALCSyncOrganicVibe(from: (data["ANEAOQUVALCconcertSeries"] as? Array<String>)?[i])
             ANEAOQUVALCImageStack.addArrangedSubview(img)
         }
+    }
+    
+    func ANEAOQUVALCTransformTimestamp(unixTimestamp: Int) -> String {
+        // 1. 自动判断秒还是毫秒 (2026年的秒级时间戳约为 1.7e9，毫秒级为 1.7e12)
+        let timestampInterval = unixTimestamp > 10000000000 ? TimeInterval(unixTimestamp) / 1000 : TimeInterval(unixTimestamp)
+        
+        // 2. 创建日期对象
+        let date = Date(timeIntervalSince1970: timestampInterval)
+        
+        // 3. 配置格式化器
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy" // 结果类似于: Jan 18, 2026
+        // 如果需要纯数字格式，可以使用 "MM/dd/yyyy" -> 01/18/2026
+        
+        return formatter.string(from: date)
     }
 }

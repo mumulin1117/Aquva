@@ -2,7 +2,7 @@
 //  ANEAOQUVALCMessageHubController.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/16.
+//  Created by  on 2026/1/16.
 //
 
 import UIKit
@@ -11,13 +11,14 @@ class ANEAOQUVALCMessageHubController: UIViewController {
 
     private let ANEAOQUVALCMainPool = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let ANEAOQUVALCVoidNotifier = UIImageView()
-    private var ANEAOQUVALCChatPulseBuffer: [[String: String]] = []
+    private var ANEAOQUVALCChatPulseBuffer: [[String: Any]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.98, green: 0.97, blue: 0.95, alpha: 1.00)
         ANEAOQUVALCAssembleMessageInterface()
         ANEAOQUVALCFetchRemoteConversations()
+       
     }
 
     private func ANEAOQUVALCAssembleMessageInterface() {
@@ -67,24 +68,31 @@ class ANEAOQUVALCMessageHubController: UIViewController {
             ANEAOQUVALCMainPool.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
             ANEAOQUVALCVoidNotifier.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            ANEAOQUVALCVoidNotifier.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50),
+            ANEAOQUVALCVoidNotifier.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 90),
             ANEAOQUVALCVoidNotifier.widthAnchor.constraint(equalToConstant: 240)
         ])
     }
 
     private func ANEAOQUVALCFetchRemoteConversations() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let ANEAOQUVALCIncomingData = [
-                ["alias": "NeonVibe", "brief": "That last drop was...", "stamp": "2min ago"],
-                ["alias": "SonicExplorer", "brief": "Wanna join the pit?", "stamp": "5min ago"],
-                ["alias": "BassQueen", "brief": "See you at the stage!", "stamp": "12min ago"],
-                ["alias": "RaveMaster", "brief": "Epic night so far.", "stamp": "1h ago"]
-            ]
-            
-            self.ANEAOQUVALCChatPulseBuffer = ANEAOQUVALCIncomingData
-            self.ANEAOQUVALCMainPool.reloadData()
-            self.ANEAOQUVALCVoidNotifier.isHidden = !self.ANEAOQUVALCChatPulseBuffer.isEmpty
-        }
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
+        ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/jrrsadiwbsqatz/xgtpirikdact", ANEAOQUVALCPayload: ["ANEAOQUVALCdisplayScreen":"59350823"], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
+            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            self?.ANEAOQUVALCChatPulseBuffer = result.map { dix in
+                if let titleONeert = (dix["ANEAOQUVALCdjSet"] as? Array<[String:Any]>)?.first{
+                    titleONeert
+                }else{
+                    [:]
+                    
+                }
+                
+            }
+            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
+            self?.ANEAOQUVALCMainPool.reloadData()
+            self?.ANEAOQUVALCVoidNotifier.isHidden = !(self?.ANEAOQUVALCChatPulseBuffer.isEmpty ?? true)
+        }, ANEAOQUVALCOnFailure: nil)
+        
+        
     }
 }
 
@@ -103,7 +111,7 @@ extension ANEAOQUVALCMessageHubController: UICollectionViewDelegate, UICollectio
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let ANEAOQUVALCWidth = (collectionView.bounds.width - 55) / 2
-        return CGSize(width: ANEAOQUVALCWidth, height: 260)
+        return CGSize(width: ANEAOQUVALCWidth, height: 220)
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -115,8 +123,19 @@ extension ANEAOQUVALCMessageHubController: UICollectionViewDelegate, UICollectio
         return UICollectionReusableView()
     }
 
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+ 
+        let id = ANEAOQUVALCChatPulseBuffer[indexPath.row]["ANEAOQUVALCdreamPop"] as? Int ?? 0
+        let vc = ANEAOQUVALCStagePortalBridge(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCArtistBioNews.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "\(id)"))
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
    @objc func ANEAOQUVALCSyncMatchControllerTonavi()  {
-       self.navigationController?.pushViewController(ANEAOQUVALCSyncMatchController(), animated: true)
+       
+     let vc =  ANEAOQUVALCSyncMatchController()
+       vc.hidesBottomBarWhenPushed = true
+       self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -215,12 +234,25 @@ class ANEAOQUVALCChatEntryCell: UICollectionViewCell {
         ])
     }
 
-    func ANEAOQUVALCPopulateVibe(_ data: [String: String]) {
-        ANEAOQUVALCAliasLabel.text = data["alias"]
-        ANEAOQUVALCTimeLabel.text = data["stamp"]
-        ANEAOQUVALCSnippetLabel.text = data["brief"]
-//        ANEAOQUVALCPortrait.image = MITTBuilsdArtisanWorkshop.MITTBuilsdFetchVibeGraphic(MITTBuilsdAssetAlias: "aneaoquvalc_mock_avatar")
+    func ANEAOQUVALCPopulateVibe(_ data: [String: Any]) {
+        ANEAOQUVALCAliasLabel.text = data["ANEAOQUVALCdreamPop"] as? String
+        ANEAOQUVALCTimeLabel.text = ANEAOQUVALCTransformTimestamp(unixTimestamp: data["ANEAOQUVALCechoChamber"] as? Int ?? 0)
+        ANEAOQUVALCSnippetLabel.text = data["ANEAOQUVALCdubstep"] as? String
+        ANEAOQUVALCPortrait.ANEAOQUVALCSyncOrganicVibe(from: data["ANEAOQUVALCdrumKit"] as? String ?? "")
     }
-
+    func ANEAOQUVALCTransformTimestamp(unixTimestamp: Int) -> String {
+        // 1. 自动判断秒还是毫秒 (2026年的秒级时间戳约为 1.7e9，毫秒级为 1.7e12)
+        let timestampInterval = unixTimestamp > 10000000000 ? TimeInterval(unixTimestamp) / 1000 : TimeInterval(unixTimestamp)
+        
+        // 2. 创建日期对象
+        let date = Date(timeIntervalSince1970: timestampInterval)
+        
+        // 3. 配置格式化器
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy" // 结果类似于: Jan 18, 2026
+        // 如果需要纯数字格式，可以使用 "MM/dd/yyyy" -> 01/18/2026
+        
+        return formatter.string(from: date)
+    }
     required init?(coder: NSCoder) { fatalError() }
 }

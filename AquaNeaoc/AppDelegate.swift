@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/15.
+//  Created by  on 2026/1/15.
 //
 
 import UIKit
@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        window?.rootViewController = ANEAOQUVALCMainNavigationHub()// ANEAOQUVALCLoginViewController()
+        
+        if   let upage =  UserDefaults.standard.object(forKey: "ANEAOQUVALCfolkRock") as? Int{
+            window?.rootViewController = ANEAOQUVALCMainNavigationHub()
+        }else{
+            let guideing = UINavigationController(rootViewController: ANEAOQUVALCLoginViewController())
+            guideing.navigationBar.isHidden = true
+            window?.rootViewController = guideing
+        }
+        
         window?.makeKeyAndVisible()
         return true
     }

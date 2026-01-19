@@ -2,7 +2,7 @@
 //  ANEAOQUVALCEulaPopupController.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/15.
+//  Created by  on 2026/1/15.
 //
 
 import UIKit
@@ -163,8 +163,10 @@ class ANEAOQUVALCEulaPopupController: UIViewController {
     }
 
     @objc private func ANEAOQUVALCAcceptVibeAction() {
+        
         UserDefaults.standard.set(true, forKey: "ANEAOQUVALC_EULA_ACCEPTED")
         ANEAOQUVALCDismissVibeAction()
+        NotificationCenter.default.post(name: NSNotification.Name.init("changeUIWithStatus"), object: nil)
     }
 }
 

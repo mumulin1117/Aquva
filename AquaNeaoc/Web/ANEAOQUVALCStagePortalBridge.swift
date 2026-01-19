@@ -2,7 +2,7 @@
 //  ANEAOQUVALCStagePortalBridge.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/15.
+//  Created by  on 2026/1/15.
 //
 
 import UIKit
@@ -127,7 +127,12 @@ extension ANEAOQUVALCStagePortalBridge: WKScriptMessageHandler {
     }
     
     private func ANEAOQUVALCHandleUserSignOut() {
-        ANEAOQUVALCStageNavigation.ANEAOQUVALCCurrentSessionToken = nil
+      
+        UserDefaults.standard.set(nil, forKey: "ANEAOQUVALCfolkRock")
+          
+        
+        UserDefaults.standard.set(nil, forKey: "ANEAOQUVALCglowStick")
+       
         let ANEAOQUVALCAuthVC = ANEAOQUVALCLoginViewController() // 对应之前生成的登录页
         let ANEAOQUVALCNav = UINavigationController(rootViewController: ANEAOQUVALCAuthVC)
         ANEAOQUVALCNav.navigationBar.isHidden = true

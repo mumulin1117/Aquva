@@ -2,7 +2,7 @@
 //  ANEAOQUVALCLoginController.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/15.
+//  Created by  on 2026/1/15.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 import UIKit
 
 class ANEAOQUVALCLoginViewController: UIViewController {
-
+    
     private let ANEAOQUVALCHeaderVisualContainer = UIImageView()
     private let ANEAOQUVALCMainContentSheet = UIView()
     private let ANEAOQUVALCAppIdentityLabel = UILabel()
@@ -32,11 +32,14 @@ class ANEAOQUVALCLoginViewController: UIViewController {
         ANEAOQUVALCSetupFestivalInterface()
         ANEAOQUVALCInitiateKeyboardObservers()
         ANEAOQUVALCSetupGestureDismissal()
+        NotificationCenter.default.addObserver(self, selector: #selector(changeUIWithStatus), name: NSNotification.Name.init("changeUIWithStatus"), object: nil)
     }
 
     private func ANEAOQUVALCSetupFestivalInterface() {
         view.backgroundColor = .white
+        ANEAOQUVALCExecuteLoginButton.addTarget(self, action: #selector(ANEAOQUVALCInitiateSonicFetch), for: .touchUpInside)
         
+        changeUIWithStatus()
         ANEAOQUVALCHeaderVisualContainer.contentMode = .scaleAspectFill
         ANEAOQUVALCHeaderVisualContainer.clipsToBounds = true
         ANEAOQUVALCHeaderVisualContainer.image = UIImage(named: "ANEAOQUVALC_Festival_Crowd")
@@ -50,7 +53,7 @@ class ANEAOQUVALCLoginViewController: UIViewController {
         view.addSubview(ANEAOQUVALCMainContentSheet)
 
         ANEAOQUVALCAppIdentityLabel.font = UIFont.systemFont(ofSize: 34, weight: .black)
-        let ANEAOQUVALCAttributedIdentity = NSMutableAttributedString(string: "Login Olacam")
+        let ANEAOQUVALCAttributedIdentity = NSMutableAttributedString(string: "Login Aquva ")
         ANEAOQUVALCAttributedIdentity.addAttribute(.foregroundColor, value: ANEAOQUVALCPrimaryVibeColor, range: NSRange(location: 6, length: 6))
         ANEAOQUVALCAppIdentityLabel.attributedText = ANEAOQUVALCAttributedIdentity
         ANEAOQUVALCAppIdentityLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +84,7 @@ class ANEAOQUVALCLoginViewController: UIViewController {
                
         ANEAOQUVALCConsentToggle.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .selected)
         ANEAOQUVALCConsentToggle.tintColor = ANEAOQUVALCPrimaryVibeColor
-        
+        ANEAOQUVALCConsentToggle.addTarget(self, action: #selector(ANEAOQUVALCDtoggleGetstatus), for: .touchUpInside)
         
         ANEAOQUVALCPrivacytermmLink.setTitle("By continuing you agree to our <Terms of Service>", for: .normal)
         ANEAOQUVALCPrivacytermmLink.setTitleColor(UIColor.lightGray, for: .normal)
@@ -140,6 +143,20 @@ class ANEAOQUVALCLoginViewController: UIViewController {
     @objc private func ANEAOQUVALCDismissActiveInput() {
         view.endEditing(true)
     }
+    
+   @objc func changeUIWithStatus() {
+       if UserDefaults.standard.object(forKey: "ANEAOQUVALC_EULA_ACCEPTED") as? Bool == true {
+           ANEAOQUVALCConsentToggle.isSelected = true
+           return
+       }
+       ANEAOQUVALCConsentToggle.isSelected = false
+    }
+    @objc private func ANEAOQUVALCDtoggleGetstatus() {
+        ANEAOQUVALCConsentToggle.isSelected = !ANEAOQUVALCConsentToggle.isSelected
+        
+        UserDefaults.standard.set(ANEAOQUVALCConsentToggle.isSelected, forKey: "ANEAOQUVALC_EULA_ACCEPTED")
+        UserDefaults.standard.synchronize()
+    }
 
     @objc private func ANEAOQUVALCHandleKeyboardRise(notification: NSNotification) {
         guard let ANEAOQUVALCKeyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -158,6 +175,45 @@ class ANEAOQUVALCLoginViewController: UIViewController {
         }
     }
 
+    
+    @objc private func ANEAOQUVALCInitiateSonicFetch() {
+        if ANEAOQUVALCConsentToggle.isSelected == false {
+            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text: "Please read our terms and ELUA First!")
+            return
+        }
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Log in...")
+        if let elail = ANEAOQUVALCEmailInputField.text,elail != "",let pased = ANEAOQUVALCPasswordInputField.text,pased != "" {
+            ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/oalkoaz/sbtaxzuikfh", ANEAOQUVALCPayload: ["ANEAOQUVALCguestList":"59350823","ANEAOQUVALCgroupChat":elail,"ANEAOQUVALCgrunge":pased]) { [weak self] ANEAOQUVALdata in
+                guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any],
+                      let result = MITTBuilsddata["data"] as? [String:Any] else {
+                    
+                    ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text: "Your email account or password is error!")
+                    return }
+             
+                UserDefaults.standard.set(result["ANEAOQUVALCfolkRock"] as? Int, forKey: "ANEAOQUVALCfolkRock")
+                  
+                
+                UserDefaults.standard.set(result["ANEAOQUVALCglowStick"] as? String, forKey: "ANEAOQUVALCglowStick")
+                  
+                  
+                 
+                ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController =  ANEAOQUVALCMainNavigationHub.init()
+                ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
+            }ANEAOQUVALCOnFailure: {  ertttt in
+      
+                ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text: ertttt.localizedDescription)
+            }
+
+            return
+        }
+        
+        
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text: "Email account or password cant not be empty!")
+      
+    }
+    
+    
+    
     private func ANEAOQUVALCConfigureInputField(_ ANEAOQUVALCTextField: UITextField, _ ANEAOQUVALCTitle: String, _ ANEAOQUVALCPlaceholder: String, _ ANEAOQUVALCSymbol: String, _ ANEAOQUVALCIndex: CGFloat) {
         let ANEAOQUVALCLabel = UILabel()
         ANEAOQUVALCLabel.text = ANEAOQUVALCTitle

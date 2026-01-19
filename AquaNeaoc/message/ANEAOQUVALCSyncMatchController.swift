@@ -2,15 +2,27 @@
 //  ANEAOQUVALCSyncMatchController.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/16.
+//  Created by  on 2026/1/16.
 //
 
 import UIKit
 
 class ANEAOQUVALCSyncMatchController: UIViewController {
-
+    // MARK: - Data Synchronization
+    private func ANEAOQUVALCInitiateSonicFetch() {
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
+        ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/peuvpgz/jebmbcwgmeulvj", ANEAOQUVALCPayload: ["ANEAOQUVALCmusicPlaylist":1], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            self?.ANEAOQUVALCPastBeatBuffer = result
+            self?.ANEAOQUVALCHistoryPool.reloadData()
+            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
+            self?.ANEAOQUVALCVoidNotifier.isHidden = !(self?.ANEAOQUVALCPastBeatBuffer.isEmpty ?? true)
+        }, ANEAOQUVALCOnFailure: nil)
+        
+      
+    }
     private let ANEAOQUVALCControlPlane = UIScrollView()
-  
+    private let ANEAOQUVALCVoidNotifier = UIImageView()
     private let ANEAOQUVALCHistoryPool: UICollectionView = {
         let ANEAOQUVALCLayout = UICollectionViewFlowLayout()
         ANEAOQUVALCLayout.scrollDirection = .horizontal
@@ -31,26 +43,36 @@ class ANEAOQUVALCSyncMatchController: UIViewController {
     
     
     @objc func ANEAOQUVALCstartToggle(){
-        
+        let pageContetnt = ANEAOQUVALCStagePortalBridge.init(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCCrewSelector.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: ""))
+        pageContetnt.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(pageContetnt, animated: true)
         
     }
     
     
     @objc func ANEAOQUVALCFilteroggle(){
         
+        let pageContetnt = ANEAOQUVALCStagePortalBridge.init(ANEAOQUVALCUrlSource: ANEAOQUVALCStageNavigation.ANEAOQUVALCGenreFilter.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: ""))
+        pageContetnt.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(pageContetnt, animated: true)
         
     }
     
-    private var ANEAOQUVALCPastBeatBuffer: [[String: String]] = []
+    private var ANEAOQUVALCPastBeatBuffer: [[String: Any]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor =  UIColor(red: 0.98, green: 0.96, blue: 0.94, alpha: 1)
         ANEAOQUVALCSetupTacticalView()
-        
-        ANEAOQUVALCPullRemoteBeatLogs()
+       
+        ANEAOQUVALCInitiateSonicFetch()
     }
-
+    @objc func ANEAOQUVALCBackTriggerTOac(){
+        
+       
+        self.navigationController?.popViewController(animated: true)
+        
+    }
     private func ANEAOQUVALCSetupTacticalView() {
         let ANEAOQUVALCNavBox = UIView()
         ANEAOQUVALCNavBox.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +80,7 @@ class ANEAOQUVALCSyncMatchController: UIViewController {
         
         let ANEAOQUVALCBackTrigger = UIButton()
         ANEAOQUVALCBackTrigger.setImage(UIImage(named: "ANEAOQUVALCback"), for: .normal)
-        
+        ANEAOQUVALCBackTrigger.addTarget(self, action: #selector(ANEAOQUVALCBackTriggerTOac), for: .touchUpInside)
         
         let ANEAOQUVALCfilterTrigger = UIButton()
         ANEAOQUVALCfilterTrigger.setImage(UIImage(named: "ANEAOQUVALCfilter"), for: .normal)
@@ -89,6 +111,12 @@ class ANEAOQUVALCSyncMatchController: UIViewController {
         view.addSubview(ANEAOQUVALCLabel)
         view.addSubview(ANEAOQUVALCMainPulse)
 
+        ANEAOQUVALCVoidNotifier.contentMode = .scaleAspectFit
+        ANEAOQUVALCVoidNotifier.isHidden = true
+        ANEAOQUVALCVoidNotifier.image = UIImage(named: "aneaoquvalc_empty_msg")
+        ANEAOQUVALCVoidNotifier.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ANEAOQUVALCVoidNotifier)
+        
         NSLayoutConstraint.activate([
             ANEAOQUVALCNavBox.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             ANEAOQUVALCNavBox.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -121,20 +149,16 @@ class ANEAOQUVALCSyncMatchController: UIViewController {
             ANEAOQUVALCLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ANEAOQUVALCMainPulse.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ANEAOQUVALCMainPulse.topAnchor.constraint(equalTo: ANEAOQUVALCTitle.bottomAnchor, constant: 10),
-            ANEAOQUVALCMainPulse.bottomAnchor.constraint(equalTo: ANEAOQUVALCLabel.topAnchor, constant: -10)
+            ANEAOQUVALCMainPulse.bottomAnchor.constraint(equalTo: ANEAOQUVALCLabel.topAnchor, constant: -10),
        
+            
+            ANEAOQUVALCVoidNotifier.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ANEAOQUVALCVoidNotifier.topAnchor.constraint(equalTo: ANEAOQUVALCLabel.bottomAnchor, constant: 20),
+            ANEAOQUVALCVoidNotifier.widthAnchor.constraint(equalToConstant: 150)
         ])
     }
 
- 
-    private func ANEAOQUVALCPullRemoteBeatLogs() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            self.ANEAOQUVALCPastBeatBuffer = [
-                ["name": "GlowBeat"], ["name": "NightRave"], ["name": "BassDrop"]
-            ]
-            self.ANEAOQUVALCHistoryPool.reloadData()
-        }
-    }
+
 }
 
 extension ANEAOQUVALCSyncMatchController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -144,7 +168,7 @@ extension ANEAOQUVALCSyncMatchController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ANEAOQUVALCBeatHistoryCell", for: indexPath) as! ANEAOQUVALCBeatHistoryCell
-        cell.ANEAOQUVALCConfigureBeat(name: ANEAOQUVALCPastBeatBuffer[indexPath.item]["name"] ?? "")
+        cell.ANEAOQUVALCConfigureBeat(name: ANEAOQUVALCPastBeatBuffer[indexPath.item])
         return cell
     }
 }
@@ -229,8 +253,9 @@ class ANEAOQUVALCBeatHistoryCell: UICollectionViewCell {
         ])
     }
 
-    func ANEAOQUVALCConfigureBeat(name: String) {
-        ANEAOQUVALCNameTag.text = name
+    func ANEAOQUVALCConfigureBeat(name: [String:Any]) {
+        ANEAOQUVALCNameTag.text = name["ANEAOQUVALCmusicTaste"] as? String
+        ANEAOQUVALCCover.ANEAOQUVALCSyncOrganicVibe(from: name["ANEAOQUVALCmusicTheory"] as? String ?? "")
     }
 
     required init?(coder: NSCoder) { fatalError() }

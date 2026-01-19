@@ -2,7 +2,7 @@
 //  ANEAOQUVALCProfileHubController.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/16.
+//  Created by  on 2026/1/16.
 //
 
 import UIKit
@@ -23,26 +23,46 @@ class ANEAOQUVALCProfileHubController: UIViewController {
 //    private let ANEAOQUVALCMockGrids = Array(repeating: "placeholder", count: 12)
 
     
-    lazy var ANEAOQUVALCEditButton:UIButton = {
+    private lazy var ANEAOQUVALCEditButton:UIButton = {
         let ANEAOQUVALCMainPulse = UIButton(type: .custom)
         ANEAOQUVALCMainPulse.setImage(UIImage.init(named: "ANEAOQUVALCedit"), for: .normal)
         ANEAOQUVALCMainPulse.imageView?.contentMode = .scaleAspectFit
         ANEAOQUVALCMainPulse.translatesAutoresizingMaskIntoConstraints = false
-        ANEAOQUVALCMainPulse.addTarget(self, action: #selector(ANEAOQUVALCstartToggle), for: .touchUpInside)
-        
+        ANEAOQUVALCMainPulse.addTarget(self, action: #selector(ANEAOQUVALCstartToggle(withg:)), for: .touchUpInside)
+        ANEAOQUVALCMainPulse.tag = 56
         return ANEAOQUVALCMainPulse
     }()
     
     
-    @objc func ANEAOQUVALCstartToggle(){
+    @objc func ANEAOQUVALCstartToggle(withg:UIButton){
+        var ANEAOQUVALCpath = ""
+        switch withg.tag {
+        case 56:
+            ANEAOQUVALCpath = ANEAOQUVALCStageNavigation.ANEAOQUVALCPersonaEditor.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "")
+        case 57:
+            ANEAOQUVALCpath = ANEAOQUVALCStageNavigation.ANEAOQUVALCGemDispenser.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "")
+        case 58:
+            ANEAOQUVALCpath = ANEAOQUVALCStageNavigation.ANEAOQUVALCSystemTuner.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "")
+        case 59:
+            ANEAOQUVALCpath = ANEAOQUVALCStageNavigation.ANEAOQUVALCFollowerRadar.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "")
+        case 60:
+            ANEAOQUVALCpath = ANEAOQUVALCStageNavigation.ANEAOQUVALCFollowerRadar.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "")
+        case 61:
+            ANEAOQUVALCpath = ANEAOQUVALCStageNavigation.ANEAOQUVALCFollowerRadar.ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: "")
+        default:
+            break
+        }
         
-        
+        let pageContetnt = ANEAOQUVALCStagePortalBridge.init(ANEAOQUVALCUrlSource:ANEAOQUVALCpath )
+        pageContetnt.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(pageContetnt, animated: true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.98, green: 0.97, blue: 0.95, alpha: 1.00)
         ANEAOQUVALCBuildIdentityInterface()
-        ANEAOQUVALCConfigureActionEvents()
+        ANEAOQUVALCInitiateSonicFetch()
     }
 
     private func ANEAOQUVALCBuildIdentityInterface() {
@@ -82,7 +102,14 @@ class ANEAOQUVALCProfileHubController: UIViewController {
         ANEAOQUVALCHeaderBox.addSubview(ANEAOQUVALCQuickStack)
 
         let ANEAOQUVALCWalletBtn = ANEAOQUVALCBuildUtilityBtn(title: "Wallet", icon: "ANEAOQUVALCwallot", color: UIColor(red: 0.82, green: 1.00, blue: 0.20, alpha: 1.00))
+        ANEAOQUVALCWalletBtn.addTarget(self, action: #selector(ANEAOQUVALCstartToggle(withg:)), for: .touchUpInside)
+        ANEAOQUVALCWalletBtn.tag = 57
+        
+        
         let ANEAOQUVALCSetBtn = ANEAOQUVALCBuildUtilityBtn(title: "Settings", icon: "ANEAOQUVALCset", color: UIColor(red: 1.00, green: 0.18, blue: 0.55, alpha: 1.00))
+        ANEAOQUVALCSetBtn.addTarget(self, action: #selector(ANEAOQUVALCstartToggle(withg:)), for: .touchUpInside)
+        ANEAOQUVALCSetBtn.tag = 58
+        
         ANEAOQUVALCQuickStack.addArrangedSubview(ANEAOQUVALCWalletBtn)
         ANEAOQUVALCQuickStack.addArrangedSubview(ANEAOQUVALCSetBtn)
 
@@ -93,7 +120,7 @@ class ANEAOQUVALCProfileHubController: UIViewController {
         
         let ANEAOQUVALCStats = [("0", "Following"), ("0", "Followers"), ("0", "Like")]
         for (index, item) in ANEAOQUVALCStats.enumerated() {
-            let btn = ANEAOQUVALCBuildStatNode(count: item.0, label: item.1, tag: index)
+            let btn = ANEAOQUVALCBuildStatNode(count: item.0, label: item.1, tag: index + 59)
             ANEAOQUVALCStatusBridge.addArrangedSubview(btn)
         }
 
@@ -188,23 +215,17 @@ class ANEAOQUVALCProfileHubController: UIViewController {
         btn.titleLabel?.numberOfLines = 2
         btn.titleLabel?.textAlignment = .center
         btn.tag = tag
-        btn.addTarget(self, action: #selector(ANEAOQUVALCEnterSubsonicLayer(_:)), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(ANEAOQUVALCstartToggle(withg:)), for: .touchUpInside)
         return btn
     }
 
-    @objc private func ANEAOQUVALCEnterSubsonicLayer(_ sender: UIButton) {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .white
-        vc.title = "Details"
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+   
 
     @objc private func ANEAOQUVALCSwitchTab(_ sender: UIButton) {
         ANEAOQUVALCActiveSegment = sender.tag
         ANEAOQUVALCToggleBar.arrangedSubviews.forEach {
             if let b = $0 as? UIButton { ANEAOQUVALCRefreshTabStyle(b, active: b.tag == sender.tag) }
         }
-        
     }
 
     private func ANEAOQUVALCRefreshTabStyle(_ btn: UIButton, active: Bool) {
@@ -212,6 +233,19 @@ class ANEAOQUVALCProfileHubController: UIViewController {
         btn.setTitleColor(active ? UIColor(red: 0.86, green: 1, blue: 0, alpha: 1) : .black, for: .normal)
     }
 
-    private func ANEAOQUVALCConfigureActionEvents() {}
+    // MARK: - Data Synchronization
+    private func ANEAOQUVALCInitiateSonicFetch() {
+        let ANEAOQUVALCelectricGuitar = UserDefaults.standard.object(forKey: "ANEAOQUVALCfolkRock") as? Int ?? 0
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
+        ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/ahxvcz/ifhgftavpknt", ANEAOQUVALCPayload: ["ANEAOQUVALCelectricGuitar":ANEAOQUVALCelectricGuitar], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any],
+                  let result = MITTBuilsddata["data"] as? [String:Any] else { return }
+            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
+            self?.ANEAOQUVALCPortraitOrb.ANEAOQUVALCSyncOrganicVibe(from: result["ANEAOQUVALCenergyLevel"] as? String )
+            self?.ANEAOQUVALCNameTag.text = result["ANEAOQUVALCencore"] as? String
+        }, ANEAOQUVALCOnFailure: nil)
+        
+      
+    }
 }
 

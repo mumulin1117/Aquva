@@ -2,7 +2,7 @@
 //  ANEAOQUVALCStageNavigation.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/15.
+//  Created by  on 2026/1/15.
 //
 
 import Foundation
@@ -21,7 +21,7 @@ enum ANEAOQUVALCStageNavigation: String {
     case ANEAOQUVALCArtistBioNews = "pages/newsDetails/index?userId="
     case ANEAOQUVALCConductReport = "pages/report/index?"
     
-    case ANEAOQUVALCAttendeeBackstage = "pages/othersHomePage/index?userId=?"
+    case ANEAOQUVALCAttendeeBackstage = "pages/othersHomePage/index?userId="
     case ANEAOQUVALCFollowerRadar = "pages/Followers/index?"
     case ANEAOQUVALCSystemTuner = "pages/setting/index?"
     case ANEAOQUVALCPersonaEditor = "pages/EditProfile/index?"
@@ -36,10 +36,8 @@ enum ANEAOQUVALCStageNavigation: String {
     static var ANEAOQUVALCCurrentSessionToken: String? {
         get {
             let ANEAOQUVALCPreferenceHub = UserDefaults.standard
-            return ANEAOQUVALCPreferenceHub.object(forKey: "ANEAOQUVALC_Identity_Token") as? String
-        } set {
-            UserDefaults.standard.set(newValue, forKey: "ANEAOQUVALC_Identity_Token")
-        }
+            return ANEAOQUVALCPreferenceHub.object(forKey: "ANEAOQUVALCglowStick") as? String
+        } 
     }
 
     func ANEAOQUVALCConstructFestivalURL(ANEAOQUVALCAppendage: String) -> String {
