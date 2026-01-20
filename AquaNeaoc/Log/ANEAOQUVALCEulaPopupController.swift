@@ -36,7 +36,7 @@ class ANEAOQUVALCEulaPopupController: UIViewController {
 
 //        ANEAOQUVALCStageVisualHeader.contentMode = .scaleAspectFill
 //        ANEAOQUVALCStageVisualHeader.clipsToBounds = true
-//        ANEAOQUVALCStageVisualHeader.image = UIImage(named: "ANEAOQUVALC_Festival_Crowd")
+//        ANEAOQUVALCStageVisualHeader.image = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "ANEAOQUVALC_Festival_Crowd")
 //        ANEAOQUVALCStageVisualHeader.translatesAutoresizingMaskIntoConstraints = false
 //        view.addSubview(ANEAOQUVALCStageVisualHeader)
 
@@ -46,7 +46,7 @@ class ANEAOQUVALCEulaPopupController: UIViewController {
         ANEAOQUVALCCoreSheetContainer.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ANEAOQUVALCCoreSheetContainer)
 
-        ANEAOQUVALCManifestTitleLabel.text = "EULA"
+        ANEAOQUVALCManifestTitleLabel.text = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "E70h6zXYySG4LNk7iqV5HIhVq1KfdSqfqcBKHKPOTk/sMBTg")
         ANEAOQUVALCManifestTitleLabel.font = UIFont.systemFont(ofSize: 28, weight: .black)
         ANEAOQUVALCManifestTitleLabel.textColor = .black
         ANEAOQUVALCManifestTitleLabel.textAlignment = .center
@@ -103,14 +103,14 @@ class ANEAOQUVALCEulaPopupController: UIViewController {
         ANEAOQUVALCActionStackWrapper.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCCoreSheetContainer.addSubview(ANEAOQUVALCActionStackWrapper)
 
-        ANEAOQUVALCAbortTrigger.setTitle("Cancle", for: .normal)
+        ANEAOQUVALCAbortTrigger.setTitle(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "lvUPQg4wSH3iVUrvgP2YYtw9bmyRXdTr8km60Bzdz7T4GtiUL2I="), for: .normal)
         ANEAOQUVALCAbortTrigger.setTitleColor(.black, for: .normal)
         ANEAOQUVALCAbortTrigger.backgroundColor = ANEAOQUVALCNeutralGray
         ANEAOQUVALCAbortTrigger.layer.cornerRadius = 20
         ANEAOQUVALCAbortTrigger.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         ANEAOQUVALCAbortTrigger.addTarget(self, action: #selector(ANEAOQUVALCDismissVibeAction), for: .touchUpInside)
 
-        ANEAOQUVALCConfirmTrigger.setTitle("Agree", for: .normal)
+        ANEAOQUVALCConfirmTrigger.setTitle(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "TznatI4ENZSPz4dlsobrvpQw7hE1FHifQgWiqcNjpMWvxXrIew=="), for: .normal)
         ANEAOQUVALCConfirmTrigger.setTitleColor(.white, for: .normal)
         ANEAOQUVALCConfirmTrigger.backgroundColor = ANEAOQUVALCVibePink
         ANEAOQUVALCConfirmTrigger.layer.cornerRadius = 20

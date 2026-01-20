@@ -62,9 +62,9 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
 
     // MARK: - Data Synchronization
     private func ANEAOQUVALCInitiateSonicFetch() {
-        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with:ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "WOApE+/UfKSL0Q9OgQPL23ZAabpLeBMrhBUHuh6F81p4dvm4+hH1SWpD") )
         ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/lctgaxlgkxxpqz/uzzgksft", ANEAOQUVALCPayload: ["ANEAOQUVALCliveChat":"59350823"], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
-            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata[ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "w8q04LbhbP8WzFFO8vPE9H+BTgnGvVoRdYaNH6k8UGJJd0EM") ] as? [[String:Any]] else { return }
             self?.ANEAOQUVALCEventStageData = result
             ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
             DispatchQueue.main.async { self?.ANEAOQUVALCRefreshEventInterface() }
@@ -72,7 +72,7 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
         
         // 用户推荐请求
         ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/ugaburemkz/xixnfhnmkrydo", ANEAOQUVALCPayload: ["ANEAOQUVALCacousticVibe":"59350823"], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
-            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata[ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "2/Hdm4CfYpxb1DGuRuSQDRAXHx0Ai3sbBvfpXCTrtcSSIzmY")] as? [[String:Any]] else { return }
             self?.ANEAOQUVALCPotentialPeerData = result
             DispatchQueue.main.async { self?.ANEAOQUVALCRefreshPeerInterface() }
         }, ANEAOQUVALCOnFailure: nil)
@@ -95,7 +95,7 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
         ANEAOQUVALCHeaderContainer.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCHeaderContainer.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
-        let ANEAOQUVALCLogoLabel = UIImageView(image: UIImage(named: "AquvaHomtitle"))
+        let ANEAOQUVALCLogoLabel = UIImageView(image: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "AquvaHomtitle"))
         ANEAOQUVALCLogoLabel.contentMode = .scaleAspectFit
         ANEAOQUVALCLogoLabel.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCHeaderContainer.addSubview(ANEAOQUVALCLogoLabel)
@@ -187,7 +187,7 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
         ANEAOQUVALCLabel.text = "Maybe you like"
         ANEAOQUVALCLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         let ANEAOQUVALCMore = UIButton()
-        ANEAOQUVALCMore.setBackgroundImage(UIImage(named: "ANEAOQUVALCIconlyMore"), for: .normal)
+        ANEAOQUVALCMore.setBackgroundImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "ANEAOQUVALCIconlyMore"), for: .normal)
         ANEAOQUVALCMore.addTarget(self, action: #selector(ANEAOQUVALCADMatchUserEnter), for: .touchUpInside)
         ANEAOQUVALCHeaderStack.addArrangedSubview(ANEAOQUVALCLabel)
         ANEAOQUVALCHeaderStack.addArrangedSubview(ANEAOQUVALCMore)
@@ -244,7 +244,7 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
             ANEAOQUVALCInfoStack.addArrangedSubview(ANEAOQUVALCStat)
 
             let ANEAOQUVALCVideoTrigger = UIButton()
-            ANEAOQUVALCVideoTrigger.setImage(UIImage(named: "ANEAOQUVALCIconlyPlus"), for: .normal)
+            ANEAOQUVALCVideoTrigger.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "ANEAOQUVALCIconlyPlus"), for: .normal)
             ANEAOQUVALCVideoTrigger.tintColor = .black
             ANEAOQUVALCVideoTrigger.backgroundColor = .systemGray6
             ANEAOQUVALCVideoTrigger.layer.cornerRadius = 20
@@ -252,7 +252,7 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
             ANEAOQUVALCVideoTrigger.heightAnchor.constraint(equalToConstant: 45).isActive = true
 
             let ANEAOQUVALCFollowTrigger = UIButton()
-            ANEAOQUVALCFollowTrigger.setTitle("Follow", for: .normal)
+            ANEAOQUVALCFollowTrigger.setTitle(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "glQv//jOyChkrIxW/0B22pALCOqipLv1ifXry4P46FyVrywEj08="), for: .normal)
             ANEAOQUVALCFollowTrigger.backgroundColor = UIColor(red: 1.00, green: 0.30, blue: 0.58, alpha: 1.00)
             ANEAOQUVALCFollowTrigger.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
             ANEAOQUVALCFollowTrigger.layer.cornerRadius = 18
@@ -339,7 +339,7 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
 
                 // 4. Enter 按钮
                 let ANEAOQUVALCEnterBtn = UIButton()
-                ANEAOQUVALCEnterBtn.setTitle("Enter", for: .normal)
+                ANEAOQUVALCEnterBtn.setTitle(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "DdouPTnrMRzJx9ZA+W5Q+TRnqy3Mn4x8M+fA6JcEW1VlwTMGFQ=="), for: .normal)
                 ANEAOQUVALCEnterBtn.backgroundColor = .black
                 ANEAOQUVALCEnterBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .black)
                 ANEAOQUVALCEnterBtn.layer.cornerRadius = 15
@@ -362,9 +362,9 @@ class ANEAOQUVALCFestivalPortalController: UIViewController {
                 ANEAOQUVALCUnit.addSubview(ANEAOQUVALCHostName)
                 
         let ANEAOQUVALCAlertIcon = UIButton.init()
-        ANEAOQUVALCAlertIcon.setImage(UIImage.init(named: "nokikonhreporet"), for: .normal)
+        ANEAOQUVALCAlertIcon.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "nokikonhreporet") , for: .normal)
         ANEAOQUVALCAlertIcon.addTarget(self, action: #selector(ANEAOQUVALCExecuteContentAudit), for: .touchUpInside)
-              
+        
         ANEAOQUVALCAlertIcon.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCUnit.addSubview(ANEAOQUVALCAlertIcon)
         

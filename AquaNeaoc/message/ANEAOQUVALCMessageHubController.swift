@@ -26,7 +26,7 @@ class ANEAOQUVALCMessageHubController: UIViewController {
         ANEAOQUVALCHeaderBox.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ANEAOQUVALCHeaderBox)
 
-        let ANEAOQUVALCTitleLabel = UIImageView(image: UIImage.init(named: "Aquvameasgtle"))
+        let ANEAOQUVALCTitleLabel = UIImageView(image: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "Aquvameasgtle"))
         ANEAOQUVALCTitleLabel.contentMode = .scaleAspectFit
        
         ANEAOQUVALCTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +49,7 @@ class ANEAOQUVALCMessageHubController: UIViewController {
 
         ANEAOQUVALCVoidNotifier.contentMode = .scaleAspectFit
         ANEAOQUVALCVoidNotifier.isHidden = true
-        ANEAOQUVALCVoidNotifier.image = UIImage(named: "aneaoquvalc_empty_msg")
+        ANEAOQUVALCVoidNotifier.image = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "aneaoquvalc_empty_msg")
         ANEAOQUVALCVoidNotifier.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ANEAOQUVALCVoidNotifier)
 
@@ -74,10 +74,10 @@ class ANEAOQUVALCMessageHubController: UIViewController {
     }
 
     private func ANEAOQUVALCFetchRemoteConversations() {
-        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "ch/Tz00CZaMnWcQ0dmB5GyZcssQkh/NzYOebu4iWAWrXq0SfepdAc/bL"))
         ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/jrrsadiwbsqatz/xgtpirikdact", ANEAOQUVALCPayload: ["ANEAOQUVALCdisplayScreen":"59350823"], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
             ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
-            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata[ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "qkEN25paBtiVjFbNOo5j7YN6ZmzLCvZY8+O5rGK1encG8ZLc")] as? [[String:Any]] else { return }
             self?.ANEAOQUVALCChatPulseBuffer = result.map { dix in
                 if let titleONeert = (dix["ANEAOQUVALCdjSet"] as? Array<[String:Any]>)?.first{
                     titleONeert
@@ -149,13 +149,13 @@ class ANEAOQUVALCDiscoveryBannerHeader: UICollectionReusableView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        ANEAOQUVALCBannerBtn.setBackgroundImage(UIImage(named: "ANEAOQUVALCBannerBtn"), for: .normal)
+        ANEAOQUVALCBannerBtn.setBackgroundImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "ANEAOQUVALCBannerBtn"), for: .normal)
         ANEAOQUVALCBannerBtn.imageView?.contentMode = .scaleToFill
         ANEAOQUVALCBannerBtn.translatesAutoresizingMaskIntoConstraints = false
         addSubview(ANEAOQUVALCBannerBtn)
 
         
-        let recentchatimg = UIImageView(image: UIImage.init(named: "Recent Chat"))
+        let recentchatimg = UIImageView(image: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "Recent Chat"))
         recentchatimg.translatesAutoresizingMaskIntoConstraints = false
         addSubview(recentchatimg)
         NSLayoutConstraint.activate([
@@ -208,7 +208,7 @@ class ANEAOQUVALCChatEntryCell: UICollectionViewCell {
         ANEAOQUVALCSnippetLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(ANEAOQUVALCSnippetLabel)
 
-        ANEAOQUVALCChatTrigger.setImage(UIImage(named: "redhichad"), for: .normal)
+        ANEAOQUVALCChatTrigger.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "redhichad"), for: .normal)
         ANEAOQUVALCChatTrigger.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(ANEAOQUVALCChatTrigger)
 

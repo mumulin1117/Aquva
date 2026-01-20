@@ -57,6 +57,7 @@ class ANEAOQUVALCStagePortalBridge: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with:ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "WOApE+/UfKSL0Q9OgQPL23ZAabpLeBMrhBUHuh6F81p4dvm4+hH1SWpD") )
         ANEAOQUVALCPrepareStageLayout()
         ANEAOQUVALCBootDataStream()
     }
@@ -89,7 +90,7 @@ extension ANEAOQUVALCStagePortalBridge: WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.ANEAOQUVALCFestivalWebView.isHidden = false
-            // ANEAOQUVALCProgressTuner.ANEAOQUVALCShared.ANEAOQUVALCStopSpinning()
+            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
         }
     }
 }
@@ -160,7 +161,7 @@ extension ANEAOQUVALCStagePortalBridge: SKProductsRequestDelegate, SKPaymentTran
             let ANEAOQUVALCPayment = SKPayment(product: ANEAOQUVALCProduct)
             SKPaymentQueue.default().add(ANEAOQUVALCPayment)
         } else {
-            ANEAOQUVALCFinalizePaymentStatus("Item not found", ANEAOQUVALCIsError: true)
+            ANEAOQUVALCFinalizePaymentStatus(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "hUDRpXEj7sVvW1djXCDY/428Xu/EnN4GUN17YpuXA3IH/K0TRRit90hyG4UnMw==") , ANEAOQUVALCIsError: true)
         }
     }
     
@@ -172,7 +173,7 @@ extension ANEAOQUVALCStagePortalBridge: SKProductsRequestDelegate, SKPaymentTran
                 ANEAOQUVALCNotifyWebOfSuccess()
             case .failed:
                 SKPaymentQueue.default().finishTransaction(ANEAOQUVALCTran)
-                let ANEAOQUVALCFailureMsg = ANEAOQUVALCTran.error?.localizedDescription ?? "Transaction Denied"
+                let ANEAOQUVALCFailureMsg = ANEAOQUVALCTran.error?.localizedDescription ?? ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "12PMNhI4NKKMDcteb6ufZ6NrQbjKbs2CZOXCshu3fJUOFGv5fFGm1cO6WdxZ4NM8r7E=")
                 ANEAOQUVALCFinalizePaymentStatus(ANEAOQUVALCFailureMsg, ANEAOQUVALCIsError: true)
             case .restored:
                 SKPaymentQueue.default().finishTransaction(ANEAOQUVALCTran)

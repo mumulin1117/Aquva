@@ -58,16 +58,16 @@ struct ANEAOQUVALCFestivalRadioDispatcher {
     // MARK: - Request Security Packaging
     private static func ANEAOQUVALCEncapsulateBackstagePass(ANEAOQUVALCTargetURL: URL, ANEAOQUVALCDataStream: [String: Any]) -> URLRequest {
         var ANEAOQUVALCOutboundRequest = URLRequest(url: ANEAOQUVALCTargetURL)
-        ANEAOQUVALCOutboundRequest.httpMethod = "POST"
+        ANEAOQUVALCOutboundRequest.httpMethod = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "nEiqBNih8n2xgwffWJU3wReQyX1dDcnhhaEI69H+8Gb8RAxI")
         ANEAOQUVALCOutboundRequest.cachePolicy = .reloadIgnoringLocalCacheData
         ANEAOQUVALCOutboundRequest.timeoutInterval = 30
         
         // Festival Authorization Headers
         let ANEAOQUVALCCredentials: [String: String] = [
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "key": "59350823",
-            "token": ANEAOQUVALCStageNavigation.ANEAOQUVALCCurrentSessionToken ?? ""
+            ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "MSiJvr++Ln6U4fntEVHBcM/fQgs8T06vdOGMmAlHMd8v50iYswDybNoUc2I="): ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "c4r7Ay2f2tTyVuEr+kgGerbM/vnsaVwJs8gMnnayNemwJ4a24KnZmbpprgrEp8KY"),
+            ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "wEOrE1PeLHRPf+5dwvmc315r+gOELJSk6nTgNTiagOkfwjt1a2A="): ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "NZj1Ao81RmTgeT8mxciYb84oPPXQ1m6yP8p2cb8rTECUWKn6NEieBwmGdJYsXo3z"),
+            ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "NNtZHTYZdB1BwGhSNamwKbmCF9WuNOMtny5DhRwmVUkfczQ="): "59350823",
+            ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "btxVNknu9Ths8AgDgLREndrsfzYqNrrsyCwB0dutZNsqR1oxAw=="): ANEAOQUVALCStageNavigation.ANEAOQUVALCCurrentSessionToken ?? ""
         ]
         
         for (ANEAOQUVALCKey, ANEAOQUVALCValue) in ANEAOQUVALCCredentials {
@@ -110,12 +110,7 @@ extension UIImageView {
         
         // 1. 接入工坊纹理池检索
         let ANEAOQUVALCUniqueKey = NSString(string: ANEAOQUVALCIdentityString)
-//        if let ANEAOQUVALCStoredTexture = MITTBuilsdArtisanWorkshop.MITTBuilsdTexturePool.object(forKey: ANEAOQUVALCUniqueKey) {
-//            if ANEAOQUVALCIsPortalActive {
-//                self.image = ANEAOQUVALCStoredTexture
-//            }
-//            return
-//        }
+
         
         // 2. 建立异步脉冲任务
         let ANEAOQUVALCRequestConfig = URLRequest(url: ANEAOQUVALCNetworkLink, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 15.0)

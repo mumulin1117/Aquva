@@ -11,7 +11,7 @@ import CryptoKit
 class ANEAOQUVALCSoundwaveCacheEngine {
     
     // MARK: - Festival Encryption Identity
-    private static let ANEAOQUVALCCoreVibeFrequencyHex = "F3A2B5D1C4E8A7B9F0D2E6B4A8C1D7F5A3E9B2D0C6F4A8B2C7E1D9F5A0B4C8E2"
+    private static let ANEAOQUVALCCoreVibeFrequencyHex = "A7B9C3D5E1F2A4B6C8E0D2F4A6B8C0E2D4F6A8B0C2E4D6F8A0B2C4E6D8F0A2B4"
     private static let ANEAOQUVALCStageNonceGate = 16
     private static let ANEAOQUVALCEncoreTagGate = 16
 

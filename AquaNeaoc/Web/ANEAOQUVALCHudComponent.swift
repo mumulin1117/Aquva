@@ -59,7 +59,7 @@ class ANEAOQUVALCHudComponent: UIView {
     // MARK: - 公开调用接口
     
     /// 开启加载提示
-    func ANEAOQUVALCBeginLoading(with message: String? = "Loading...") {
+    func ANEAOQUVALCBeginLoading(with message: String? = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "zXinZiY4iFxgwr1eB7Bd7bAUXvLRaQe4U2w9t/Z1hb0W4pNWDmzHLCso")) {
         DispatchQueue.main.async {
             guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
             self.frame = window.bounds

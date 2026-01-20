@@ -33,7 +33,7 @@ class ANEAOQUVALCMainNavigationHub: UITabBarController {
 
     private func ANEAOQUVALCWrapInNav(_ ANEAOQUVALCRoot: UIViewController, _ ANEAOQUVALCIcon: String) -> UINavigationController {
         let ANEAOQUVALCNav = UINavigationController(rootViewController: ANEAOQUVALCRoot)
-        ANEAOQUVALCNav.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: ANEAOQUVALCIcon)?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: ANEAOQUVALCIcon + "1")?.withRenderingMode(.alwaysOriginal))
+        ANEAOQUVALCNav.tabBarItem = UITabBarItem(title: nil, image: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: ANEAOQUVALCIcon)?.withRenderingMode(.alwaysOriginal), selectedImage: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: ANEAOQUVALCIcon + "1")?.withRenderingMode(.alwaysOriginal))
         ANEAOQUVALCNav.navigationBar.isHidden = true
         return ANEAOQUVALCNav
     }

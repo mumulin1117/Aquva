@@ -10,9 +10,9 @@ import UIKit
 class ANEAOQUVALCSyncMatchController: UIViewController {
     // MARK: - Data Synchronization
     private func ANEAOQUVALCInitiateSonicFetch() {
-        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "Om/oUVkMqLeud6wqu0W2bYO8ZVjO5koa5tcwb9cM3u7xQWLNieZLcGhB"))
         ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/peuvpgz/jebmbcwgmeulvj", ANEAOQUVALCPayload: ["ANEAOQUVALCmusicPlaylist":1], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
-            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata[ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "VSmE1pfK+u7pwjDpUm1Em0WD4jBMz0/17aOBPM4DPrgzqkQd")] as? [[String:Any]] else { return }
             self?.ANEAOQUVALCPastBeatBuffer = result
             self?.ANEAOQUVALCHistoryPool.reloadData()
             ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
@@ -33,7 +33,7 @@ class ANEAOQUVALCSyncMatchController: UIViewController {
     
     private lazy var ANEAOQUVALCMainPulse: UIButton = {
         let ANEAOQUVALCMainPulse = UIButton(type: .custom)
-        ANEAOQUVALCMainPulse.setImage(UIImage.init(named: "starrtuinBell"), for: .normal)
+        ANEAOQUVALCMainPulse.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "starrtuinBell"), for: .normal)
         ANEAOQUVALCMainPulse.imageView?.contentMode = .scaleAspectFit
         ANEAOQUVALCMainPulse.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCMainPulse.addTarget(self, action: #selector(ANEAOQUVALCstartToggle), for: .touchUpInside)
@@ -79,18 +79,18 @@ class ANEAOQUVALCSyncMatchController: UIViewController {
         view.addSubview(ANEAOQUVALCNavBox)
         
         let ANEAOQUVALCBackTrigger = UIButton()
-        ANEAOQUVALCBackTrigger.setImage(UIImage(named: "ANEAOQUVALCback"), for: .normal)
+        ANEAOQUVALCBackTrigger.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "ANEAOQUVALCback"), for: .normal)
         ANEAOQUVALCBackTrigger.addTarget(self, action: #selector(ANEAOQUVALCBackTriggerTOac), for: .touchUpInside)
         
         let ANEAOQUVALCfilterTrigger = UIButton()
-        ANEAOQUVALCfilterTrigger.setImage(UIImage(named: "ANEAOQUVALCfilter"), for: .normal)
+        ANEAOQUVALCfilterTrigger.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "ANEAOQUVALCfilter"), for: .normal)
         ANEAOQUVALCfilterTrigger.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCfilterTrigger.addTarget(self, action: #selector(ANEAOQUVALCFilteroggle), for: .touchUpInside)
         ANEAOQUVALCBackTrigger.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCNavBox.addSubview(ANEAOQUVALCBackTrigger)
         ANEAOQUVALCNavBox.addSubview(ANEAOQUVALCfilterTrigger)
 
-        let ANEAOQUVALCTitle = UIImageView(image: UIImage.init(named: "Feel the Same Beat"))
+        let ANEAOQUVALCTitle = UIImageView(image: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "Feel the Same Beat"))
         ANEAOQUVALCTitle.contentMode = .scaleAspectFit
         ANEAOQUVALCTitle.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ANEAOQUVALCTitle)
@@ -105,7 +105,7 @@ class ANEAOQUVALCSyncMatchController: UIViewController {
         
        
         
-        let ANEAOQUVALCLabel = UIImageView(image: UIImage.init(named: "histouyiw-white"))
+        let ANEAOQUVALCLabel = UIImageView(image: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "histouyiw-white"))
         ANEAOQUVALCLabel.contentMode = .scaleAspectFit
         ANEAOQUVALCLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ANEAOQUVALCLabel)
@@ -113,7 +113,7 @@ class ANEAOQUVALCSyncMatchController: UIViewController {
 
         ANEAOQUVALCVoidNotifier.contentMode = .scaleAspectFit
         ANEAOQUVALCVoidNotifier.isHidden = true
-        ANEAOQUVALCVoidNotifier.image = UIImage(named: "aneaoquvalc_empty_msg")
+        ANEAOQUVALCVoidNotifier.image = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "aneaoquvalc_empty_msg")
         ANEAOQUVALCVoidNotifier.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ANEAOQUVALCVoidNotifier)
         
@@ -206,7 +206,7 @@ class ANEAOQUVALCBeatHistoryCell: UICollectionViewCell {
         ANEAOQUVALCOnlineIndicator.addSubview(ANEAOQUVALCDot)
         
         let ANEAOQUVALCStatus = UILabel()
-        ANEAOQUVALCStatus.text = "online"
+        ANEAOQUVALCStatus.text = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "c47evqN844NT3IF1xxd4wQDGYXaeHGKp0yDu1LAirj/1ij2C/2g=")
         ANEAOQUVALCStatus.textColor = .white
         ANEAOQUVALCStatus.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         ANEAOQUVALCStatus.translatesAutoresizingMaskIntoConstraints = false
@@ -217,7 +217,7 @@ class ANEAOQUVALCBeatHistoryCell: UICollectionViewCell {
         ANEAOQUVALCNameTag.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(ANEAOQUVALCNameTag)
         
-        ANEAOQUVALCCamIcon.image = UIImage(named: "yesCarefever")
+        ANEAOQUVALCCamIcon.image = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "yesCarefever")
     
         ANEAOQUVALCCamIcon.contentMode = .center
        

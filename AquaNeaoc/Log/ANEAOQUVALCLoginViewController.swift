@@ -42,7 +42,7 @@ class ANEAOQUVALCLoginViewController: UIViewController {
         changeUIWithStatus()
         ANEAOQUVALCHeaderVisualContainer.contentMode = .scaleAspectFill
         ANEAOQUVALCHeaderVisualContainer.clipsToBounds = true
-        ANEAOQUVALCHeaderVisualContainer.image = UIImage(named: "ANEAOQUVALC_Festival_Crowd")
+        ANEAOQUVALCHeaderVisualContainer.image = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "ANEAOQUVALC_Festival_Crowd")
         ANEAOQUVALCHeaderVisualContainer.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ANEAOQUVALCHeaderVisualContainer)
 
@@ -59,16 +59,16 @@ class ANEAOQUVALCLoginViewController: UIViewController {
         ANEAOQUVALCAppIdentityLabel.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCMainContentSheet.addSubview(ANEAOQUVALCAppIdentityLabel)
 
-        ANEAOQUVALCConfigureInputField(ANEAOQUVALCEmailInputField, "Email", "Enter your email", "ANEAOQUVALCenvelope", 0)
-        ANEAOQUVALCConfigureInputField(ANEAOQUVALCPasswordInputField, "Password", "Enter password", "ANEAOQUVALClock", 1)
+        ANEAOQUVALCConfigureInputField(ANEAOQUVALCEmailInputField, ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "tJdOF4vcmDhyfzuI8RQrkiK2kJequsZTsfMR9tk3qPLmHRvEoQ=="), ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "fVCASIu59SKIpnNvQZ7sbwmHVXjUmaC98KAwK/uYt2PfQGBUuxsjO7zhDzQc/DF1"), "ANEAOQUVALCenvelope", 0)
+        ANEAOQUVALCConfigureInputField(ANEAOQUVALCPasswordInputField, ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "7lEPMW4vH8xfJtvI03MezLrwW/sj8IfT7CJ8W4nIIl2whIsB5kYhgw=="), ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "Hu4XyYpZpugNcWAx0O9LvuKnE0Tx9T7kyuoVyRfnVJbpsroruqBtLxWiQTyV9Q=="), "ANEAOQUVALClock", 1)
         ANEAOQUVALCPasswordInputField.isSecureTextEntry = true
 
-        ANEAOQUVALCExecuteLoginButton.setBackgroundImage(UIImage.init(named: "siunemailg"), for: .normal)
+        ANEAOQUVALCExecuteLoginButton.setBackgroundImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "siunemailg"), for: .normal)
         ANEAOQUVALCExecuteLoginButton.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCMainContentSheet.addSubview(ANEAOQUVALCExecuteLoginButton)
         
         ANEAOQUVALCEulaTriggerButton.addTarget(self, action: #selector(ANEAOQUVALCOpenEulaPortal), for: .touchUpInside)
-        ANEAOQUVALCEulaTriggerButton.setImage(UIImage.init(named: "ANEAOQUVALCEula"), for: .normal)
+        ANEAOQUVALCEulaTriggerButton.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "ANEAOQUVALCEula"), for: .normal)
         ANEAOQUVALCEulaTriggerButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ANEAOQUVALCEulaTriggerButton)
         view.addSubview(ANEAOQUVALCUserpriccsLink)
@@ -86,10 +86,10 @@ class ANEAOQUVALCLoginViewController: UIViewController {
         ANEAOQUVALCConsentToggle.tintColor = ANEAOQUVALCPrimaryVibeColor
         ANEAOQUVALCConsentToggle.addTarget(self, action: #selector(ANEAOQUVALCDtoggleGetstatus), for: .touchUpInside)
         
-        ANEAOQUVALCPrivacytermmLink.setTitle("By continuing you agree to our <Terms of Service>", for: .normal)
+        ANEAOQUVALCPrivacytermmLink.setTitle(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "ZWi7E4lYKMgz9sTHP6hRGuAu9nvjImNGJ4v1jZzB0ZnFVpX0Yu5v7rzbUrtDwyLHBPfUrLfCAFQRuCyZwLzNUnv47FJLO/ikdRrsj+/4Mz7v"), for: .normal)
         ANEAOQUVALCPrivacytermmLink.setTitleColor(UIColor.lightGray, for: .normal)
         ANEAOQUVALCPrivacytermmLink.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight:.regular)
-        ANEAOQUVALCUserpriccsLink.setTitle("<Privacy Policy>.", for: .normal)
+        ANEAOQUVALCUserpriccsLink.setTitle(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "1jcQErpKOxeQpjVwDcllXpEKG5z5ghqZAvUAGqroHxorD8KFWa+mSBx8/CO+oZZ7gw=="), for: .normal)
         ANEAOQUVALCUserpriccsLink.setTitleColor(UIColor.lightGray, for: .normal)
         ANEAOQUVALCUserpriccsLink.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight:.regular)
         
@@ -178,7 +178,7 @@ class ANEAOQUVALCLoginViewController: UIViewController {
     
     @objc private func ANEAOQUVALCInitiateSonicFetch() {
         if ANEAOQUVALCConsentToggle.isSelected == false {
-            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text: "Please read our terms and ELUA First!")
+            ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text:ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "rpPznuUv8YLETUYHys8QhdZ0ydPMB9+XU84HUvRklLjhDixukMv5Wj0H0e+28MeTGOazAMOa5SBqrn7+N3kQst3+Ah75") )
             return
         }
         ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Log in...")
@@ -187,7 +187,7 @@ class ANEAOQUVALCLoginViewController: UIViewController {
                 guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any],
                       let result = MITTBuilsddata["data"] as? [String:Any] else {
                     
-                    ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text: "Your email account or password is error!")
+                    ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "5l26swAkVY30ysSFwSb4MJtQi3GrjmICcxB6NM22BNpwL11sUp4/03t1nqSDela3qem5eUC7xOXU/UxVKm8zo7WvbyEt8VvV"))
                     return }
              
                 UserDefaults.standard.set(result["ANEAOQUVALCfolkRock"] as? Int, forKey: "ANEAOQUVALCfolkRock")
@@ -208,7 +208,7 @@ class ANEAOQUVALCLoginViewController: UIViewController {
         }
         
         
-        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text: "Email account or password cant not be empty!")
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCShowToast(text: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "+Mk8WMOoC4BJGtdzU9Nwva+B0qmAu+SREqXpr6AiyyDDbIpZUNgOALszLHChUG2ZWLnlxWoyZPJl0c9/iW8heENDb5EcpQJN3q6CnQ=="))
       
     }
     
@@ -221,7 +221,7 @@ class ANEAOQUVALCLoginViewController: UIViewController {
         ANEAOQUVALCLabel.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCMainContentSheet.addSubview(ANEAOQUVALCLabel)
 
-        let ANEAOQUVALCIcon = UIImageView(image: UIImage(named: ANEAOQUVALCSymbol))
+        let ANEAOQUVALCIcon = UIImageView(image: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: ANEAOQUVALCSymbol))
         
         ANEAOQUVALCIcon.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCMainContentSheet.addSubview(ANEAOQUVALCIcon)

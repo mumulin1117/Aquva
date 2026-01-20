@@ -53,17 +53,17 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
 
     // MARK: - Data Synchronization
     private func ANEAOQUVALCInitiateSonicSync() {
-        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "YW6ld6lzoh/qwWvd60SiW4iAmvb6zYiXA0LjMNe5VUQpSzWz4z+fmOoy"))
         ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/ugaburemkz/xixnfhnmkrydo", ANEAOQUVALCPayload: ["ANEAOQUVALCacousticVibe":"59350823"], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
             ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
-            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata[ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "br9f9qWSnQ4/TP51epCXfdkvGaKSPsKXvfdKRhvlgxCTps46")] as? [[String:Any]] else { return }
             self?.ANEAOQUVALCSonicInsightBuffer = result
             DispatchQueue.main.async { self?.ANEAOQUVALCRenderInsightSection() }
         }, ANEAOQUVALCOnFailure: nil)
         
         // 请求 B: Video 数据
         ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/yqsrvbkcnz/pidfjq", ANEAOQUVALCPayload: ["ANEAOQUVALCbootleg":"59350823","ANEAOQUVALCcampground":20,"ANEAOQUVALCbroadcast":1], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
-            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata[ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "QCnTbK28K40XbzKCbgLENarM4f9QXp5TwLK7zSkYnw8rGPqa")] as? [[String:Any]] else { return }
             self?.ANEAOQUVALCVisualMotionBuffer = result.filter({ $0["ANEAOQUVALCdanceFloor"] as? String != nil })
             DispatchQueue.main.async { self?.ANEAOQUVALCRenderMotionSection() }
         }, ANEAOQUVALCOnFailure: nil)
@@ -99,7 +99,7 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
         let ANEAOQUVALCHeaderRow = UIView()
         ANEAOQUVALCHeaderRow.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
-        let ANEAOQUVALCTitleLabel = UIImageView(image: UIImage(named: "Aquvavidetitle"))
+        let ANEAOQUVALCTitleLabel = UIImageView(image: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "Aquvavidetitle"))
         ANEAOQUVALCTitleLabel.contentMode = .scaleAspectFit
         ANEAOQUVALCTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCHeaderRow.addSubview(ANEAOQUVALCTitleLabel)
@@ -223,7 +223,7 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
         ANEAOQUVALCSectionWrapper.spacing = 15
         
         let ANEAOQUVALCLabel = UILabel()
-        ANEAOQUVALCLabel.text = "Video"
+        ANEAOQUVALCLabel.text = ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "AsKZ1jUn5ekXnunt5sN1kkxrvGoxOlD9lYQkx8sft7hbsyArJg")
         ANEAOQUVALCLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         
         let ANEAOQUVALCHorizontalScroll = UIScrollView()
@@ -287,7 +287,7 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
         
         let ANEAOQUVALCPlayBtn = UIButton()
         ANEAOQUVALCPlayBtn.isUserInteractionEnabled = false
-        ANEAOQUVALCPlayBtn.setBackgroundImage(UIImage(named: "GroupcellPplay"), for: .normal)
+        ANEAOQUVALCPlayBtn.setBackgroundImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "GroupcellPplay"), for: .normal)
         ANEAOQUVALCPlayBtn.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCCard.addSubview(ANEAOQUVALCPlayBtn)
         
@@ -299,7 +299,7 @@ class ANEAOQUVALCDiscoveryPortalController: UIViewController {
         ANEAOQUVALCCard.addSubview(ANEAOQUVALCDesc)
 
         let ANEAOQUVALCReport = UIButton()
-        ANEAOQUVALCReport.setImage(UIImage(named: "nokikonhreporet"), for: .normal)
+        ANEAOQUVALCReport.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "nokikonhreporet"), for: .normal)
 //        ANEAOQUVALCReport.addTarget(self, action: #selector(ANEAOQUVALCExecuteContentAudit), for: .touchUpInside)
         ANEAOQUVALCReport.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCCard.addSubview(ANEAOQUVALCReport)

@@ -9,27 +9,27 @@ import Foundation
 
 enum ANEAOQUVALCStageNavigation: String {
 
-    case ANEAOQUVALCVibeDiscovery = "pages/interestDetails/index?topicId="
-    case ANEAOQUVALCMomentDeepDive = "pages/DynamicDetails/index?dynamicId="
+    case ANEAOQUVALCVibeDiscovery = "uNV7+50TnpYzPjiBruNe7iFQSUgxQPPSr1hSvWuiZ+fP6/oxZqtUnKfX8nRlRldxzf/f9eN4rCPE0wbSCiJzglOrwhk="
+    case ANEAOQUVALCMomentDeepDive = "hGRclTig6ijORmDxdMsspEv1UYBaedy6QE/W2nUezcStDnRpg+SpV8xCBEe8UETMJqutA4MI5LHBOHy2wnwPcbOzef4R"
     
-    case ANEAOQUVALCStudioUploader = "pages/publishDynamic/index?"
+    case ANEAOQUVALCStudioUploader = "D/C3OcToMn40bNfEmHpLasNniMM92YE93h+rvaFhuHhZda7SZ0riIpJXtkDJpwXHbGSmG/oDJ0oKc1s="
     
-    case ANEAOQUVALCSoundPartnerMatch = "pages/RandomMatching/index?"
-    case ANEAOQUVALCCrewSelector = "pages/selectUser/index?"
-    case ANEAOQUVALCSetlistPortal = "pages/activityDetail/index?activityId="
-    case ANEAOQUVALCLaunchPad = "pages/ReleaseEvent/index?"
-    case ANEAOQUVALCArtistBioNews = "pages/newsDetails/index?userId="
-    case ANEAOQUVALCConductReport = "pages/report/index?"
+    case ANEAOQUVALCSoundPartnerMatch = "igU0m7M225uXoAdBxv7H1/fQy8WX/LoUzCzxHxPiyxC47Rh/+Siov/VnRSi+M7/LVnxWGAWiX8yhn5c="
+    case ANEAOQUVALCCrewSelector = "MpInQnCj1SO2w8vUQLYdLHxlw+jPSN2IPG/uUQcGoC2qXmHu09F/gD6aop5oinGURaKeRSe41Q=="
+    case ANEAOQUVALCSetlistPortal = "WkJfgNTKVPUlEZbnaY2XQ3Yg73/mGpIXtocJvS5W+teHbj76JFyGnu4LWLRhUAQEO0qKwAqS8Y7pFvgvzvwqP5ghf+TBVA=="
+    case ANEAOQUVALCLaunchPad = "nAjTBnJB7ZWfOCE/Cl17RstHc9YdbZ9ML/SbKaV7+km82lxMZHBu+PcRe/squmQEdLTHUROz+XM1"
+    case ANEAOQUVALCArtistBioNews = "pldGKR+Sv917I/XqTeLWP4nvkGqWhNo0LF6jTENM7mDd2KDQWpEofffvrORXhjDTteWOco8HmSSrtuhd9bBs"
+    case ANEAOQUVALCConductReport = "o0mbZV9hOSp2oh43J4xJPb+i3skHJBbkwTWpxgzfuHEPJSstD8PFM8IuMqpAfGQeabVO"
     
-    case ANEAOQUVALCAttendeeBackstage = "pages/othersHomePage/index?userId="
-    case ANEAOQUVALCFollowerRadar = "pages/Followers/index?"
-    case ANEAOQUVALCSystemTuner = "pages/setting/index?"
-    case ANEAOQUVALCPersonaEditor = "pages/EditProfile/index?"
-    case ANEAOQUVALCGemDispenser = "pages/wallet/index?"
-    case ANEAOQUVALCLegalVault = "pages/Agreement/index?type=1"
-    case ANEAOQUVALCPrivacyWhisper = "pages/Agreement/index?type=2"
-    case ANEAOQUVALCHarmonyTracker = "pages/CurrentUserDetails/index?matchUserId="
-    case ANEAOQUVALCGenreFilter = "pages/Filter/index?"
+    case ANEAOQUVALCAttendeeBackstage = "N1BRVdAVUKQYm8tmagPI8IgaMqyvpTJKYq/IU123n0kCBT/YOX32oY/r2Wt4WerpRNKMc4uHQfASE6B3e8dV5GZ4"
+    case ANEAOQUVALCFollowerRadar = "iEUovI5h/1juNIen0969FB9tq9rhWafqDy/4RUhQiRrbnuTiZXB7JcKAS/KErCW5K7FokXFN"
+    case ANEAOQUVALCSystemTuner = "WT2GBbI52uIZWbNMetR7dWPPjNCqx9kjDUgxdS8XAHL5S27Zdr0GlTpqxSCYSXR84kdioA=="
+    case ANEAOQUVALCPersonaEditor = "2g85xdw1DDfAkCbP/TdxSim5zidLsbksbkKZuycQ82+01rXb0rxexPmbHMiCIjIbwJMHE8qrfjg="
+    case ANEAOQUVALCGemDispenser = "LrU0DNo8o8qNvP6Tkg7DEcobxToxNKHFWzTzY+SWWVK3S65bYWeX2DeTg2jNs+LrM2e0"
+    case ANEAOQUVALCLegalVault = "kRCVEZLr1uESVZQAcbNjBRo2+cIJnc3l5cs/p4ihWBLCQ8ZHB+vh06zo5BItaZ5/Q3dDmp49lvzsRK0H"
+    case ANEAOQUVALCPrivacyWhisper = "tvrrRDZwG5Gv7iEYMok+/FanHh562RvzfhfX2QaWdigNaKDFEFRxOQJqBLiRKCr1qVS4tfTK+5VHy+qb"
+    case ANEAOQUVALCHarmonyTracker = "2AaWT78E4FIVZU1jJP7OaLcNnZgb0lVDTAEhuzQmwo3ceJpIk1XMpzCUchCM8N3xYpQ/91mo3FnVjbXEuvMnq2pf/egpzi5jwVBW"
+    case ANEAOQUVALCGenreFilter = "fivmz/JA+E7a4B4195rJ9pZcpkXHj3GR25pogfvH3pVRE8VfIVTCNkHnBzvFsk9YHdLB"
     
     case ANEAOQUVALCStaticSignal = ""
 
@@ -52,10 +52,10 @@ enum ANEAOQUVALCStageNavigation: String {
         
         let ANEAOQUVALCUrlFragments = [
             ANEAOQUVALCDomainBridge,
-            self.rawValue,
+            ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: self.rawValue),
             ANEAOQUVALCAppendage,
-            "&token=", ANEAOQUVALCPassKey,
-            "&appID=", ANEAOQUVALCUniqueAppCode
+            ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "FllAADbloM6mvM+icZvuRWK3RG7bT+0TA9y7Nil5L8Yn/Cz/OpPh"), ANEAOQUVALCPassKey,
+            ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "JlzaYeArbjwBFxkHPgtC3w6ZDOQ074axs1cfq0wMmoR/lMakrpEr"), ANEAOQUVALCUniqueAppCode
         ]
         
         return ANEAOQUVALCUrlFragments.joined()

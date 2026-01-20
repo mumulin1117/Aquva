@@ -16,10 +16,10 @@ class ANEAOQUVALCFeedsStreamController: UIViewController, UITableViewDelegate, U
     // MARK: - Data Synchronization
     private func ANEAOQUVALCInitiateSonicSync() {
       
-        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: "Loading...")
+        ANEAOQUVALCHudComponent.shared.ANEAOQUVALCBeginLoading(with: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "Fz0Wkokdxvp5uKMotTwogYVwjWS3okNBMjCIVhVemUzuR4gPaSqogjzO"))
         ANEAOQUVALCFestivalRadioDispatcher.ANEAOQUVALCTransmitSonicWave(ANEAOQUVALCRoute: "/yqsrvbkcnz/pidfjq", ANEAOQUVALCPayload: ["ANEAOQUVALCbootleg":"59350823","ANEAOQUVALCcampground":20,"ANEAOQUVALCbroadcast":1,"ANEAOQUVALCboomBox":ANEAOQUVALCActiveCategory], ANEAOQUVALCOnSuccess: { [weak self] ANEAOQUVALdata in
             ANEAOQUVALCHudComponent.shared.ANEAOQUVALCDismissLoading()
-            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata["data"] as? [[String:Any]] else { return }
+            guard let MITTBuilsddata = ANEAOQUVALdata as? [String:Any], let result = MITTBuilsddata[ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCRetrieveSecretLyric(ANEAOQUVALCEncodedVibe: "T9rDGm9zvMXhKxO1Dv/qsAo4z1oNbdhsFs5h82bHFZa/7gPR")] as? [[String:Any]] else { return }
             self?.ANEAOQUVALCCurrentVibeData = result.filter({ $0["ANEAOQUVALCdanceFloor"] as? String == nil })
             self?.ANEAOQUVALCFeedsTable.reloadData()
         }, ANEAOQUVALCOnFailure: nil)
@@ -37,7 +37,7 @@ class ANEAOQUVALCFeedsStreamController: UIViewController, UITableViewDelegate, U
         ANEAOQUVALCHeaderBox.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ANEAOQUVALCHeaderBox)
 
-        let ANEAOQUVALCMainTitle =  UIImageView(image: UIImage.init(named: "Aquvamusicfeed"))
+        let ANEAOQUVALCMainTitle =  UIImageView(image: ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "Aquvamusicfeed"))
         ANEAOQUVALCMainTitle.contentMode = .scaleAspectFit
         ANEAOQUVALCMainTitle.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCHeaderBox.addSubview(ANEAOQUVALCMainTitle)
@@ -60,9 +60,9 @@ class ANEAOQUVALCFeedsStreamController: UIViewController, UITableViewDelegate, U
         let ANEAOQUVALCTags = ["ANEAOQUVALCPopular", "ANEAOQUVALCNew", "ANEAOQUVALCFollowed"]
         for (index, title) in ANEAOQUVALCTags.enumerated() {
             let ANEAOQUVALCBtn = UIButton(type: .custom)
-            ANEAOQUVALCBtn.setImage(UIImage.init(named: ANEAOQUVALCTags[index]), for: .normal)
+            ANEAOQUVALCBtn.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: ANEAOQUVALCTags[index]), for: .normal)
             
-            ANEAOQUVALCBtn.setImage(UIImage.init(named:  ANEAOQUVALCTags[index] + "sel"), for:.selected)
+            ANEAOQUVALCBtn.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias:  ANEAOQUVALCTags[index] + "sel"), for:.selected)
             
             ANEAOQUVALCBtn.tag = index
             ANEAOQUVALCBtn.addTarget(self, action: #selector(ANEAOQUVALCFilterTriggered(_:)), for: .touchUpInside)
@@ -195,7 +195,7 @@ class ANEAOQUVALCFeedVibeCell: UITableViewCell {
         viewBg.backgroundColor = .white
         viewBg.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(viewBg)
-        ANEAOQUVALCReportBackdrop.setImage(UIImage.init(named: "bigonhreporet"), for: .normal)
+        ANEAOQUVALCReportBackdrop.setImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "bigonhreporet"), for: .normal)
      
         ANEAOQUVALCReportBackdrop.translatesAutoresizingMaskIntoConstraints = false
         viewBg.addSubview(ANEAOQUVALCReportBackdrop)
@@ -302,7 +302,7 @@ class ANEAOQUVALCFeedVibeCell: UITableViewCell {
 
         // Chat 按钮 (右侧黄色椭圆)
        
-ANEAOQUVALCChatActionBtn.setBackgroundImage(UIImage.init(named: "ANEAOQUVALChich"), for: .normal)
+ANEAOQUVALCChatActionBtn.setBackgroundImage(ANEAOQUVALCSoundwaveCacheEngine.ANEAOQUVALCExtractLiveMomentGraphic(ANEAOQUVALCGraphicAlias: "ANEAOQUVALChich"), for: .normal)
         ANEAOQUVALCChatActionBtn.translatesAutoresizingMaskIntoConstraints = false
         ANEAOQUVALCStatView.addSubview(ANEAOQUVALCChatActionBtn)
 
