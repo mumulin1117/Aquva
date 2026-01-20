@@ -2,7 +2,7 @@
 //  ANEAOQUVALCHudComponent.swift
 //  AquaNeaoc
 //
-//  Created by mumu on 2026/1/19.
+//  Created by ANEAOQUVALC on 2026/1/19.
 //
 import UIKit
 
